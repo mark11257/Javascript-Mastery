@@ -1,3 +1,4 @@
+// alert function 
 const javascriptt = document.querySelector(".ht1");
 javascriptt.addEventListener("click", function(){
     alert("this is an external Alert javascript message !");
