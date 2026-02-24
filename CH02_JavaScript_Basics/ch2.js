@@ -181,3 +181,74 @@ console.log("\n===== COERCION SUMMARY =====");
 console.log("Boolean -> Number: false=0, true=1");
 console.log("Number -> String: any number can become a string");
 console.log("String -> Number: numeric strings become numbers, others become NaN");
+
+let name = prompt("What is your name?", "");
+
+try {
+    // 1. Check if the user clicked "Cancel" (null) or left it empty ("")
+    if (!name || name.trim() === "") {
+        throw new Error("Empty name provided"); // This jumps straight to catch
+    }
+
+    document.querySelector(".name").innerHTML = "Hello " + name;
+    console.log(name);
+
+} catch (error) {
+    // 2. This now runs because we "threw" the error above
+    console.error("You have no name, dude. Error: " + error.message);
+    name = "Stranger detected!";
+    document.querySelector(".name").innerHTML = name;
+}
+
+// color choice
+let color = prompt("Tell me "+name+" What is your fav color?");
+ switch(color){
+    case "red":
+    case "RED":
+    case "Red":
+        var msg = "  your color is "+ color;
+        break;
+    case "blue":
+    case "Blue":
+    case "BLUE":
+        var msg = "  your color is "+ color;
+        break;
+    case "Green":
+    case "green":
+    case "GREEN":
+        var msg = "  your color is "+ color;
+        break;
+    default:
+        var msg = " you have no color";
+        break;
+ }
+
+ document.querySelector(".name").innerHTML += msg;
+
+ //loops
+
+ function forloop(){
+    for(var i=0;i<=10;i++){
+        document.querySelector(".loop").innerHTML += "I = "+i+"<br>"; 
+    }
+ }
+ forloop();
+
+function whileloop(){
+    var i=10;
+    while(i<=20){
+        document.querySelector(".loop1").innerHTML += "I = "+i+"<br>"; 
+        i++;
+    }
+ }
+ whileloop();
+
+function doloop(){
+    var i=20;
+    do{
+       var response = prompt("Enter a Number:");
+    }while(!response)
+ }
+ doloop();
+
+ confirm("do you want to continue");
