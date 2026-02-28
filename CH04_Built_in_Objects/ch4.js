@@ -96,10 +96,21 @@ const userMap = new Map([
     ["Country","Egypt"]
 ]);
 
-// Adding one more
+// Adding one more using set
 userMap.set("status", "Active");
 
+// iterate  using for of loop for more than one variable intialization
 for (const [key,value] of userMap){
     console.log(`${key} is ${value}`);
 }
 console.log(userMap);
+
+// Date 
+const today = new Date();
+console.log(today);
+console.log(today.getYear() +1900); // Get year 
+console.log(today.getFullYear()); // Get the year + 1900 (starting year in date function)
+console.log(today.getMonth() +1); //Gets the month, using local time jan --> 0 Dec --> 11
+console.log(today.getDay() +1); // Get Day of the week Sun --> 0 sat --> 6
+console.log(today.getHours() -12); //Get hour of the day 00:12 AM --> 0 11:00 PM -->23
+console.log(today.toDateString()); // print date in string format
