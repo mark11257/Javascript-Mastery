@@ -1,0 +1,26 @@
+body {
+  margin: 0;                /* Removes the default gap around the edge of the page */
+  padding: 0;               /* Ensures no internal spacing is forcing elements away */
+  background-color: #121212; /* Dark grey: easier on the eyes than pure black (#000) */
+  color: #e0e0e0;           /* Off-white: prevents "visual vibration" against the dark background */
+}
+
+.container {
+  background-color: #1e1e1e;   /* Slightly lighter than the body to create "Elevation" */
+  padding: 40px;               /* Space inside the card so text doesn't touch the edges */
+  border-radius: 12px;         /* Rounds the corners for a modern, friendly look */
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5); /* Adds depth so the card looks like it's "floating" */
+  border: 1px solid #333;      /* A subtle line to define the shape in the dark */
+}
+
+h1 {
+  color: #bb86fc;  /* Accent Color: A soft purple stands out against dark grey */
+  margin: 0 0 10px 0; /* Adds space ONLY to the bottom, pushing the next header down */
+  font-size: 2rem;    /* Makes the main title nice and big */
+}
+
+h2 {
+  color: #03dac6;  /* Secondary Accent: A teal color to distinguish it from the H1 */
+  font-weight: 400; /* Makes the font "thinner" so it looks less aggressive than the H1 */
+  font-size: 1.2rem;
+}
