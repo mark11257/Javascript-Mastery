@@ -12,12 +12,13 @@
      <!-- <script src="CH05_Error_Handling/ch5.js" defer></script>  -->
        <!-- <script src="CH06_Object/ch6.js" defer></script>  -->
        <!-- <script src="CH07_Function_Object/ch7.js" defer></script>  -->
-          <script src="CH08_BOM/ch8.js" defer></script> 
+          <!-- <script src="CH08_BOM/ch8.js" defer></script>  -->
+               <script src="CH09_DOM/ch.9.js" defer></script> 
        <link rel="stylesheet" href="page1.css"> 
 </head>
 <body>
-    <div class="container">
-    <h1 onclick="alert('internal click event occured')">Page 1</h1>
+    <div class="container" id="divone">
+    <h1 onclick="alert('internal click event occured')" id="firsth">Page 1</h1>
     <p>this is paragraph 1 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore repellendus 
         excepturi consequatur, aliquid, repudiandae earum alias at pariatur doloribus magnam obcaecati molestiae ut.
     Explicabo ab veritatis culpa corrupti ullam consequatur!</p>
@@ -27,5 +28,15 @@
     <h1 class="loop"> </h1>
     <h1 class="loop1"> </h1>
     <h1 class="loop2"> </h1>
+
+    <form>
+        <label>username:</label>
+        <input type="text" name="username">
+        <br><label>password:</label>
+        <input type="password" name="password"><br>
+        <label>Male:</label><input type="radio" name="gender" value="male">
+        <label>Female:</label><input type="radio" name="gender" value="female">
+        <input type="submit">
+    </form>
 </body>
 </html>
