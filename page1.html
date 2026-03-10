@@ -7,13 +7,14 @@
     <title>Javascript Mastery</title>
     <!-- <script src="CH01_Introduction/ch1.js" defer></script> -->
     <!-- <script src="CH02_JavaScript_Basics/ch2.js" defer></script> -->
-     <!-- <script src="CH03_Functions/ch3.js" defer></script> -->
+    <!-- <script src="CH03_Functions/ch3.js" defer></script> -->
     <!-- <script src="CH04_Built_in_Objects/ch4.js" defer></script>    -->
-     <!-- <script src="CH05_Error_Handling/ch5.js" defer></script>  -->
-       <!-- <script src="CH06_Object/ch6.js" defer></script>  -->
-       <!-- <script src="CH07_Function_Object/ch7.js" defer></script>  -->
-          <!-- <script src="CH08_BOM/ch8.js" defer></script>  -->
-               <script src="CH09_DOM/ch.9.js" defer></script> 
+    <!-- <script src="CH05_Error_Handling/ch5.js" defer></script>  -->
+    <!-- <script src="CH06_Object/ch6.js" defer></script>  -->
+    <!-- <script src="CH07_Function_Object/ch7.js" defer></script>  -->
+    <!-- <script src="CH08_BOM/ch8.js" defer></script>  -->
+    <!-- <script src="CH09_DOM/ch.9.js" defer></script>  -->
+    <script src="CH09_DOM/ch.9-cookies.js" defer></script> 
        <link rel="stylesheet" href="page1.css"> 
 </head>
 <body>
@@ -31,12 +32,14 @@
 
     <form>
         <label>username:</label>
-        <input type="text" name="username">
+        <input type="text" name="username" class="username">
         <br><label>password:</label>
-        <input type="password" name="password"><br>
-        <label>Male:</label><input type="radio" name="gender" value="male">
-        <label>Female:</label><input type="radio" name="gender" value="female">
-        <input type="submit">
+        <input type="password" name="password" class="password"><br>
+        <label>Male:</label><input type="radio" name="gender" value="male" class="gender">
+        <label>Female:</label><input type="radio" name="gender" value="female" class="gender">
+        <input type="submit" onclick="saveInfo(event)">
     </form>
+    <button type="button" onclick="readInfo('UserPassCookie')">Read Info</button>
+    <button type="button" onclick="deleteInfo('UserGenderCookie')">delete Info</button>
 </body>
 </html>
