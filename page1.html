@@ -14,7 +14,8 @@
     <!-- <script src="CH07_Function_Object/ch7.js" defer></script>  -->
     <!-- <script src="CH08_BOM/ch8.js" defer></script>  -->
     <!-- <script src="CH09_DOM/ch.9.js" defer></script>  -->
-    <script src="CH09_DOM/ch.9-cookies.js" defer></script> 
+    <!-- <script src="CH09_DOM/ch.9-cookies.js" defer></script>  -->
+      <script src="CH10_Events/ch10.js" defer></script> 
        <link rel="stylesheet" href="page1.css"> 
 </head>
 <body>
@@ -37,9 +38,40 @@
         <input type="password" name="password" class="password"><br>
         <label>Male:</label><input type="radio" name="gender" value="male" class="gender">
         <label>Female:</label><input type="radio" name="gender" value="female" class="gender">
-        <input type="submit" onclick="saveInfo(event)">
+        <!-- <input type="submit" onclick="saveInfo(event)"> -->
     </form>
-    <button type="button" onclick="readInfo('UserPassCookie')">Read Info</button>
-    <button type="button" onclick="deleteInfo('UserGenderCookie')">delete Info</button>
+    <!-- <button type="button" onclick="readInfo('UserPassCookie')">Read Info</button>
+    <button type="button" onclick="deleteInfo('UserGenderCookie')">delete Info</button> -->
+
+<button id="myButton" class="myButton">Hover me</button>
+    
+    <!-- CH10 Events Demo -->
+    <button id="fireSeen">Fire Custom Event (manual)</button>
+    
+    <div id="customEventStatus">Waiting for seen event...</div>
+    <div>
+        <input type="text" id="myInput" placeholder="Type here...">
+        <br><br>
+        <form id="myForm">
+            <input type="text" name="username">
+            <input type="submit" value="Submit Form">
+        </form>
+    </div>
+    <button id="myButton" class="myButton">Hover me</button>
+    <br><br>
+    <!-- drop down list -->
+     <select class="menu">
+        <option value="1">Value 1</option>
+        <option value="2">Value 2</option>
+        <option value="3">Value 3</option>
+        <option value="4">Value 4</option>
+        <option value="5">Value 5</option>
+        <option value="6">Value 6</option>
+     </select><br>
+     <button class="btn1" onclick="displayInfo()">Display info</button>
+     <div class="value"></div>
+     <div class="text"></div>
+
+
 </body>
 </html>
