@@ -45,6 +45,23 @@ input.addEventListener('change', function() {
 
 console.log('Event examples loaded - open console to see!');
 
+// ==================== Custom Events Example ====================
+// Create custom event called "seen"
+var seenEvent = new CustomEvent('seen', {
+  detail: { message: 'Custom event data' }
+});
+
+// Listen for custom event
+document.querySelector("#fireSeen").addEventListener('click', function(e) {
+  console.log('SEEN custom event fired!', e.detail);
+});
+
+// Fire custom event after 3 seconds
+setTimeout(function() {
+  document.dispatchEvent(seenEvent);
+  console.log('seen custom event fired');
+}, 3000);
+
 // Dropdown properties
 
 function displayInfo(){
@@ -52,4 +69,6 @@ function displayInfo(){
     var btn1 = document.querySelector(".btn1");
     var value = document.querySelector(".value");
     var text = document.querySelector(".text");
+    value.innerHTML = menu.options[menu.selectedIndex].value;
+    text.innerHTML = menu.options[menu.selectedIndex].text;
 }
