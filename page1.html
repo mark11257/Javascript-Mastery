@@ -15,7 +15,8 @@
     <!-- <script src="CH08_BOM/ch8.js" defer></script>  -->
     <!-- <script src="CH09_DOM/ch.9.js" defer></script>  -->
     <!-- <script src="CH09_DOM/ch.9-cookies.js" defer></script>  -->
-      <script src="CH10_Events/ch10.js" defer></script> 
+    <!-- <script src="CH10_Events/ch10.js" defer></script>  -->
+    <script src="CH11_AJAX_JSON/ch11.js" defer></script> 
        <link rel="stylesheet" href="page1.css"> 
 </head>
 <body>
@@ -68,6 +69,10 @@
         <option value="5">Value 5</option>
         <option value="6">Value 6</option>
      </select><br>
+     <form id="myForm" onsubmit="updateInfo(event)">
+            <input type="text" name="username" id="ajax">
+            <input type="submit" value="Submit Form" >
+        </form>
      <button class="btn1" onclick="displayInfo()">Display info</button>
      <div class="value"></div>
      <div class="text"></div>
