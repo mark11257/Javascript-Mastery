@@ -29,10 +29,10 @@ function saveInfo(e) {
     date.setMonth(date.getMonth() + 2); 
     const expires = date.toUTCString();
 
-    // Applying the General Rule: Name=Value; expires=Date; path=/
-    document.cookie = `UserNameCookie=${username}; expires=${expires}; path=/`;
-    document.cookie = `UserPassCookie=${userpassword}; expires=${expires}; path=/`;
-    document.cookie = `UserGenderCookie=${usergender}; expires=${expires}; path=/`;
+    // Applying the General Rule: Name=Value; expires=Date; path=/; Secure; SameSite=Lax
+    document.cookie = `UserNameCookie=${username}; expires=${expires}; path=/; Secure; SameSite=Lax`;
+    document.cookie = `UserPassCookie=${userpassword}; expires=${expires}; path=/; Secure; SameSite=Lax`;
+    document.cookie = `UserGenderCookie=${usergender}; expires=${expires}; path=/; Secure; SameSite=Lax`;
 
     writeLine(area, "Success: Data saved for " + username);
     writeLine(area, "Expires: " + expires, true);
