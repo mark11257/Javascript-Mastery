@@ -15,7 +15,7 @@ function writeLog(selector, text, maxLogs = 0) {
     p.style.margin = "4px 0";
     // Adding timestamp for clarity
     const time = new Date().toLocaleTimeString();
-    p.innerHTML = `[${time}] >> ${text}`;
+    p.textContent = `[${time}] >> ${text}`;
     
     // Append to the area
     area.appendChild(p);
