@@ -9,7 +9,7 @@ function displayInfo(){
         if (xhr.readyState == 4 && xhr.status == 200) {
             // MOVE THE UPDATE HERE
             txt = JSON.stringify(xhr.responseText)
-            show.innerHTML = txt; 
+            show.innerHTML = txt[2]; 
             console.log("Data received and displayed!");
         }
     }
