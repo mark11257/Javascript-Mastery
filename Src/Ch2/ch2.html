@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH02: JavaScript Language Basics - Javascript Mastery</title>
+    <script src="../../JsChapters/chapter-loader.js" defer></script>
+    <link rel="stylesheet" href="../../LandingPage.css">
+    <style>
+      .demo-step { 
+        background: linear-gradient(135deg, rgba(30,30,30,0.8), rgba(45,45,68,0.8)) !important; 
+        padding: 25px; 
+        margin: 25px 0; 
+        border-left: 5px solid #03dac6; 
+        border-radius: 12px; 
+        color: #e0e0e0 !important; 
+      }
+      .demo-step h4 { margin-top: 0; color: #bb86fc !important; }
+      .console-instruction { 
+        background: #1a1a1a !important; 
+        color: #0f0 !important; 
+        padding: 15px; 
+        border-radius: 8px; 
+        font-family: monospace; 
+        border: 1px solid #444;
+      }
+      nav a { 
+        background: linear-gradient(135deg, #03dac6, #00b8a9); 
+        color: white; 
+        padding: 12px 24px; 
+        text-decoration: none; 
+        border-radius: 8px; 
+        display: inline-block; 
+        margin-bottom: 20px;
+      }
+
+      .demo-prompt { background: linear-gradient(135deg, #bb86fc, #6200ea); }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="../LandingPage.html">← Back to All Chapters</a>
+    </nav>
+    
+    <main>
+        <header class="container">
+            <h1>📚 CH02: JavaScript Language Basics</h1>
+            <p>Variables, data types, operators, coercion, conditionals, loops & dialogues - the foundation of JavaScript!</p>
+            
+            <div class="demo-step">
+                <h4>📋 What You'll Learn:</h4>
+                <p><strong>var/let/const:</strong> Different variable declarations</p>
+                <p><strong>Type Coercion:</strong> Automatic type conversion (== vs ===)</p>
+                <p><strong>prompt/confirm:</strong> User input dialogues</p>
+                <p><strong>Loops:</strong> for/while/do-while in action</p>
+                <p><strong>switch:</strong> Multiple condition handling</p>
+            </div>
+            
+            <button class="chapter-activate demo-prompt" data-chapter="ch2">🚀 Load CH2 JavaScript & Start Interactive Demos</button>
+        </header>
+
+        <section class="demo-section">
+            <div class="demo-step">
+                <h4>🎯 Interactive Name Prompt (Try It!)</h4>
+                <p>Load JS → Enter your name → Watch .name element update + error handling</p>
+                <h1 class="name">Your personalized greeting appears here...</h1>
+            </div>
+
+            <div class="demo-step">
+                <h4>🌈 Color Switch Statement</h4>
+                <p>After name prompt → Choose color (red/blue/green) → See custom message</p>
+                <p class="color-result">Your color message appears here...</p>
+            </div>
+
+            <div class="demo-step">
+                <h4>🔄 Click-to-Learn Console Demos (F12 → Console)</h4>
+                <p>Each button runs specific examples + logs to console!</p>
+                <button onclick="showVariables()">📦 Show Variables Demo</button>
+                <button onclick="showCoercionBasics()">🔄 Coercion Basics</button>
+                <button onclick="showEquality()">⚖️ == vs ===</button>
+                <div class="demo-area">
+                    <h3 class="loop">For/While Output Here</h3>
+                    <h3 class="loop1">Loop Results</h3>
+                </div>
+            </div>
+
+
+            <div class="demo-step">
+                <h4>💡 What ch2.js Demonstrates:</h4>
+                <ol>
+                    <li><strong>prompt() + try/catch:</strong> Safe user input with validation</li>
+                    <li><strong>switch statement:</strong> Color matching (case-insensitive)</li>
+                    <li><strong>3 Loop Types:</strong> for/while/do-while with live output</li>
+                    <li><strong>Coercion Examples:</strong> 20+ console examples</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH01: Introduction - Javascript Mastery</title>
+    <script src="../../JsChapters/chapter-loader.js" defer></script>
+
+    <link rel="stylesheet" href="../../LandingPage.css">
+    <style>
+      .demo-step { 
+        background: linear-gradient(135deg, rgba(30,30,30,0.8), rgba(45,45,68,0.8)) !important; 
+        padding: 25px; 
+        margin: 25px 0; 
+        border-left: 5px solid #03dac6; 
+        border-radius: 12px; 
+        color: #e0e0e0 !important; 
+      }
+      .demo-step h4 { margin-top: 0; color: #bb86fc !important; }
+      .console-instruction { 
+        background: #1a1a1a !important; 
+        color: #0f0 !important; 
+        padding: 15px; 
+        border-radius: 8px; 
+        font-family: monospace; 
+        border: 1px solid #444;
+      }
+      nav a { 
+        background: linear-gradient(135deg, #03dac6, #00b8a9); 
+        color: white; 
+        padding: 12px 24px; 
+        text-decoration: none; 
+        border-radius: 8px; 
+        display: inline-block; 
+        margin-bottom: 20px;
+      }
+
+      .demo-header { color: #03dac6 !important; cursor: pointer; transition: all 0.3s; }
+      .demo-header:hover { color: #00b8a9 !important; transform: scale(1.02); }
+      .special-header { border: 2px dashed #bb86fc; padding: 15px; border-radius: 8px; background: rgba(187,134,252,0.1); }
+    </style>
+
+</head>
+<body>
+    <nav>
+        <a href="../LandingPage.html">← Back to All Chapters</a>
+    </nav>
+    
+    <main>
+        <header class="container">
+            <h1>🎉 CH01: JavaScript Introduction</h1>
+            <p>Welcome to your first step in JavaScript Mastery! This chapter teaches you <strong>how to add JS to HTML</strong> and make websites interactive.</p>
+            
+            <div class="demo-step">
+                <h4>📝 What You'll Learn:</h4>
+                <p><strong>Inline JS:</strong> onclick="alert()" directly in HTML</p>
+                <p><strong>External JS:</strong> Separate .js file loaded with script </p>
+                <p><strong>Console Logging:</strong> Open F12 → Console to see messages</p>
+                <p><strong>Event Listeners:</strong> JS code that runs when user clicks</p>
+            </div>
+            
+            <button class="chapter-activate" data-chapter="ch1">🚀 Load CH1 JavaScript & Start Demos</button>
+        </header>
+
+        <section class="demo-section">
+            <div class="demo-step">
+                <h4>🎯 Demo 1: Inline Alert (Already Working!)</h4>
+                <p>Click the header below - uses <code>onclick="alert()"</code> in HTML</p>
+                <h1 class="demo-header" onclick="alert('🎉 Inline JS Alert - No .js file needed!')">Click Me for Inline Alert!</h1>
+            </div>
+
+            <div class="demo-step">
+                <h4>⚠️ Demo 2: External JS Events (Click Load Button Above)</h4>
+                <p>After loading ch1.js → Click this special header:</p>
+                <h3 class="ht1 special-header">🔥 Click for External JS Alert!</h3>
+                <p><em>Output: Browser alert box from ch1.js</em></p>
+            </div>
+
+            <div class="demo-step">
+                <h4>📱 Demo 3: Console Messages (Open F12!)</h4>
+                <p>After loading ch1.js → Open <strong>F12 → Console tab</strong> to see:</p>
+                <div class="console-instruction">
+console.error() → Yellow error message<br>
+console.warn() → Warning message<br>
+console.debug() → Object inspection
+                </div>
+                <p>JS automatically runs these when loaded!</p>
+            </div>
+
+            <div class="demo-step">
+                <h4>💡 What ch1.js Does (Step-by-Step):</h4>
+                <ol>
+                    <li>Adds click listener to .ht1 elements → Alert popup</li>
+                    <li>Shows element in console with console.debug/dir</li>
+                    <li>Displays ERROR (yellow) and WARN messages</li>
+                    <li>Demonstrates external JS working with HTML</li>
+                </ol>
+            </div>
+
+            <div class="demo-area">
+                <h2>Next Steps:</h2>
+                <p>✅ Load JS → Interact → Check Console → Master Intro!</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
