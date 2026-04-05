@@ -11,7 +11,7 @@ var txt ="";
  */
 function displayInfo(){
     // Step 1: Initialize GET request to local JSON file
-    xhr.open("GET","profile.json");
+    xhr.open("GET","../profile.json");
     // Step 2: Send the asynchronous request
     xhr.send();
     // Step 3: Callback triggered on state change
