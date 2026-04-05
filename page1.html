@@ -1,82 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Mastery</title>
-    <!-- <script src="CH01_Introduction/ch1.js" defer></script> -->
-    <!-- <script src="CH02_JavaScript_Basics/ch2.js" defer></script> -->
-    <!-- <script src="CH03_Functions/ch3.js" defer></script> -->
-    <!-- <script src="CH04_Built_in_Objects/ch4.js" defer></script>    -->
-    <!-- <script src="CH05_Error_Handling/ch5.js" defer></script>  -->
-    <!-- <script src="CH06_Object/ch6.js" defer></script>  -->
-    <!-- <script src="CH07_Function_Object/ch7.js" defer></script>  -->
-    <!-- <script src="CH08_BOM/ch8.js" defer></script>  -->
-    <!-- <script src="CH09_DOM/ch.9.js" defer></script>  -->
-    <!-- <script src="CH09_DOM/ch.9-cookies.js" defer></script>  -->
-    <!-- <script src="CH10_Events/ch10.js" defer></script>  -->
-    <script src="CH11_AJAX_JSON/ch11.js" defer></script> 
-       <link rel="stylesheet" href="page1.css"> 
+    <title>Javascript Mastery - All Chapters Test Page</title>
+    <!-- Uncomment ONE chapter JS at a time to test -->
+    <!-- <script src="../CH01_Introduction/ch1.js" defer></script> -->
+    <!-- <script src="../CH02_JavaScript_Basics/ch2.js" defer></script> -->
+    <!-- <script src="../CH03_Functions/ch3.js" defer></script> -->
+    <!-- <script src="../CH04_Built_in_Objects/ch4.js" defer></script> -->
+    <!-- <script src="../CH05_Error_Handling/ch5.js" defer></script> -->
+    <!-- <script src="../CH06_Object/ch6.js" defer></script> -->
+    <!-- <script src="../CH07_Function_Object/ch7.js" defer></script> -->
+    <!-- <script src="../CH08_BOM/ch8.js" defer></script> -->
+    <!-- <script src="../CH09_DOM/ch.9.js" defer></script> -->
+    <!-- <script src="../CH09_DOM/ch.9-cookies.js" defer></script> -->
+    <!-- <script src="../CH10_Events/ch10.js" defer></script> -->
+<script src="chapter-loader.js" defer></script>
+    <link rel="stylesheet" href="page1.css"> 
+    <style>
+      .chapter-activate {
+        background: #03dac6;
+        margin-left: 10px;
+        padding: 4px 8px;
+        font-size: 0.8rem;
+      }
+      .chapter-activate.active {
+        background: #bb86fc;
+      }
+    </style>
 </head>
 <body>
-    <div class="container" id="divone">
-    <h1 onclick="alert('internal click event occured')" id="firsth">Page 1</h1>
-    <p>this is paragraph 1 Lorem, ipsum dolor sit amet consectetur adipisicing elit. Labore repellendus 
-        excepturi consequatur, aliquid, repudiandae earum alias at pariatur doloribus magnam obcaecati molestiae ut.
-    Explicabo ab veritatis culpa corrupti ullam consequatur!</p>
-    <h3 class="ht1">Javascript</h3>
-    <h1 class="name">Welcome </h1>
-    </div>
-    <h1 class="loop"> </h1>
-    <h1 class="loop1"> </h1>
-    <h1 class="loop2"> </h1>
+    <main>
+        <header class="container">
+            <h1 onclick="alert('internal click event occured')" id="firsth">Javascript Mastery - All Chapters</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore repellendus excepturi consequatur...</p>
+            <h3 class="ht1">Javascript - Click for Alert (CH1)</h3>
+            <h1 class="name">Welcome (Dynamic - CH1/2) </h1>
+        </header>
 
-    <form>
-        <label>username:</label>
-        <input type="text" name="username" class="username">
-        <br><label>password:</label>
-        <input type="password" name="password" class="password"><br>
-        <label>Male:</label><input type="radio" name="gender" value="male" class="gender">
-        <label>Female:</label><input type="radio" name="gender" value="female" class="gender">
-        <!-- <input type="submit" onclick="saveInfo(event)"> -->
-    </form>
-    <!-- <button type="button" onclick="readInfo('UserPassCookie')">Read Info</button>
-    <button type="button" onclick="deleteInfo('UserGenderCookie')">delete Info</button> -->
+        <!-- CH1 Introduction: Alert, Console, Event Listeners on .ht1 -->
+        <!-- CH01 Introduction -->
+        <!-- CH01 Introduction -->
+        <section class="chapter-section" id="ch1">
+            <h2>CH01: Introduction <button class="chapter-activate" data-chapter="ch1">Load CH1 JS</button></h2>
+            <p><strong>About:</strong> Code editors, Brackets, Adding JS to page, Execution, Console/DevTools.</p>
+            <p>Tests: .ht1 click, console methods.</p>
+            <h3 class="ht1">Click for Alert (CH1)</h3>
+            <div class="demo-area">
+                <h1 class="loop">For Loop (CH1)</h1>
+            </div>
+        </section>
 
-<button id="myButton" class="myButton">Hover me</button>
-    
-    <!-- CH10 Events Demo -->
-    <button id="fireSeen">Fire Custom Event (manual)</button>
-    
-    <div id="customEventStatus">Waiting for seen event...</div>
-    <div>
-        <input type="text" id="myInput" placeholder="Type here...">
-        <br><br>
-        <form id="myForm">
-            <input type="text" name="username">
-            <input type="submit" value="Submit Form">
-        </form>
-    </div>
-    <button id="myButton" class="myButton">Hover me</button>
-    <br><br>
-    <!-- drop down list -->
-     <select class="menu">
-        <option value="1">Value 1</option>
-        <option value="2">Value 2</option>
-        <option value="3">Value 3</option>
-        <option value="4">Value 4</option>
-        <option value="5">Value 5</option>
-        <option value="6">Value 6</option>
-     </select><br>
-     <form id="myForm" onsubmit="updateInfo(event)">
-            <input type="text" name="username" id="ajax">
-            <input type="submit" value="Submit Form" >
-        </form>
-     <button class="btn1" onclick="displayInfo()">Display info</button>
-     <div class="value"></div>
-     <div class="text"></div>
+        <!-- CH2 Basics: Variables, Types, Coercion, Loops, Prompt/Switch -->
+        <!-- CH02 JavaScript Language Basics -->
+        <!-- CH02 Language Basics -->
+        <section class="chapter-section" id="ch2">
+            <h2>CH02: Basics <button class="chapter-activate" data-chapter="ch2">Load CH2 JS</button></h2>
+            <p><strong>About:</strong> Vars/Data types, Operators, Coercion, Conditionals/loops, Dialogues.</p>
+            <p>Tests: Prompts to .name, .loop1/.loop2 loops.</p>
+            <div class="demo-area">
+                <h1 class="loop1">While (CH2)</h1>
+                <h1 class="loop2">Do-While (CH2)</h1>
+            </div>
+        </section>
 
+        <!-- CH3 Functions -->
+        <section class="chapter-section" id="ch3">
+            <h2>CH03: Functions <button class="chapter-activate" data-chapter="ch3">Load CH3 JS</button></h2>
+            <p><strong>About:</strong> Built-in/User-defined functions, Default params, Scope/shadowing, Debugging.</p>
+            <div class="demo-area value"></div>
+        </section>
 
+        <!-- CH4 Built-ins -->
+        <!-- CH04 Built-in Objects -->
+        <section class="chapter-section" id="ch4">
+            <h2>CH04: Built-ins <button class="chapter-activate" data-chapter="ch4">Load CH4 JS</button></h2>
+            <p><strong>About:</strong> String/methods, RegExp/replace, Array/methods, Associative Array, Date.</p>
+            <p>Console tests for strings/arrays/date.</p>
+            <div class="demo-area"></div>
+        </section>
+
+        <!-- CH5 Error Handling (placeholder) -->
+        <!-- CH05 Error Object -->
+        <section class="chapter-section" id="ch5">
+            <h2>CH05: Error Handling <button class="chapter-activate" data-chapter="ch5">Load CH5 JS</button></h2>
+            <p><strong>About:</strong> Error object, try/catch/finally, onError handling.</p>
+            <div class="demo-area"></div>
+        </section>
+
+        <!-- CH6 Objects -->
+        <!-- CH06 Object Object -->
+        <section class="chapter-section" id="ch6">
+            <h2>CH06: Objects <button class="chapter-activate" data-chapter="ch6">Load CH6 JS</button></h2>
+            <p><strong>About:</strong> Custom object creation, Factory/constructor functions, Methods, defineProperty (data/accessor descriptors).</p>
+            <div class="demo-area"></div>
+        </section>
+
+        <!-- CH7 Function Objects (placeholder) -->
+        <!-- CH07 Function Object -->
+        <section class="chapter-section" id="ch7">
+            <h2>CH07: Function Objects <button class="chapter-activate" data-chapter="ch7">Load CH7 JS</button></h2>
+            <p><strong>About:</strong> Function object, IIFE, Properties/methods, Inner functions/scope chain, Closure.</p>
+            <div class="demo-area"></div>
+        </section>
+
+        <!-- CH8 BOM -->
+        <!-- CH08 BOM -->
+        <section class="chapter-section" id="ch8">
+            <h2>CH08: BOM <button class="chapter-activate" data-chapter="ch8">Load CH8 JS</button></h2>
+            <p><strong>About:</strong> Window/timers/history/location/navigator/document.</p>
+            <div class="demo-area"></div>
+        </section>
+
+        <!-- CH9 DOM -->
+        <!-- CH09 DOM -->
+        <section class="chapter-section" id="ch9">
+            <h2>CH09: DOM <button class="chapter-activate" data-chapter="ch9">Load CH9 JS</button></h2>
+            <p><strong>About:</strong> Nodes hierarchy/selectors, Modifying content/classes, Create nodes, Collections, Cookies (create/read/delete).</p>
+            <p>Tests: Selectors, forms name="username", .new-class.</p>
+            <form name="myForm">
+                <input type="text" name="username" class="username">
+            </form>
+            <div class="demo-area new-class"></div>
+        </section>
+
+        <!-- CH10 Events -->
+        <!-- CH10 Events -->
+        <section class="chapter-section" id="ch10">
+            <h2>CH10: Events <button class="chapter-activate" data-chapter="ch10">Load CH10 JS</button></h2>
+            <p><strong>About:</strong> Mouse/onsubmit/onfocus events, 'this', preventDefault, Capturing/bubbling, addEventListener, Custom events.</p>
+            <button id="myButton" class="myButton">Hover (CH10)</button>
+            <button id="fireSeen">Fire Custom Event</button>
+            <div id="customEventStatus">Waiting...</div>
+            <input type="text" id="myInput" placeholder="Type...">
+        </section>
+
+        <!-- CH11 AJAX JSON -->
+        <!-- CH11 AJAX JSON -->
+        <section class="chapter-section" id="ch11">
+            <h2>CH11: AJAX/JSON <button class="chapter-activate" data-chapter="ch11">Load CH11 JS</button></h2>
+            <p><strong>About:</strong> XHR/AJAX requests, JSON handling.</p>
+            <form id="myForm" onsubmit="updateInfo(event)">
+                <input type="text" id="ajax" placeholder="PUT text">
+                <input type="submit" value="Update">
+            </form>
+            <button class="btn1" onclick="displayInfo()">Display JSON</button>
+            <div class="value demo-area"></div>
+            <div class="text demo-area"></div>
+        </section>
+
+        <!-- No generic forms - chapter-specific only -->
+
+        <!-- Legacy container for JS -->
+        <div class="container" id="divone"></div>
+    </main>
 </body>
 </html>
+
