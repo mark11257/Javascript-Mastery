@@ -3,83 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CH03: Functions - Javascript Mastery</title>
-    <script src="../../JsChapters/chapter-loader.js" defer></script>
+    <title>CH03: Functions - JavaScript Mastery</title>
     <link rel="stylesheet" href="../../LandingPage.css">
+    <script src="../../JsChapters/chapter-loader.js" defer></script>
+    
     <style>
-      .demo-step { 
-        background: linear-gradient(135deg, rgba(30,30,30,0.8), rgba(45,45,68,0.8)) !important; 
-        padding: 25px; margin: 25px 0; 
-        border-left: 5px solid #f39c12; 
-        border-radius: 12px; color: #e0e0e0 !important; 
-      }
-      .demo-step h4 { margin-top: 0; color: #f39c12 !important; }
-      nav a { background: linear-gradient(135deg, #f39c12, #e67e22); }
-      .output-area {
-        background: #1a1a1a; color: #0f0; padding: 20px; border-radius: 8px; 
-        font-family: monospace; border-left: 4px solid #f39c12; margin-top: 15px;
-        max-height: 200px; overflow-y: auto; white-space: pre-wrap;
-      }
+        /* This ensures your specific page follows the dark theme logic */
+        body.ch3-theme {
+            background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%);
+        }
+        /* Custom adjustment for the h3 inside demo-areas */
+        .demo-area h3 {
+            color: #555;
+            font-size: 0.9rem;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
     </style>
-
 </head>
-<body>
-    <nav>
-        <a href="../LandingPage.html">← Back to All Chapters</a>
+<body class="ch3-theme">
+
+    <nav style="padding: 20px;">
+        <a href="../LandingPage.html" style="text-decoration: none; color: #bb86fc; font-weight: bold;">← Back to All Chapters</a>
     </nav>
     
     <main>
         <header class="container">
-            <h1>⚙️ CH03: JavaScript Functions</h1>
+            <h1 id="firsth">⚙️ CH03: JavaScript Functions</h1>
             <p>Built-in functions, user-defined functions, default values, variable scope & shadowing, debugging</p>
             
-            <div class="demo-step">
-                <h4>📋 Core Concepts:</h4>
+            <div class="form-row" style="justify-content: center; margin-top: 20px;">
                 <p><strong>Declarations/Expressions/Arrows</strong> • <strong>Default params</strong> • <strong>Scope chain</strong></p>
-                <p><strong>call/apply/bind</strong> • <strong>IIFE</strong> • <strong>Closures</strong></p>
             </div>
             
-            <button class="chapter-activate" data-chapter="ch3" style="background: linear-gradient(135deg, #f39c12, #e67e22);">🚀 Load CH3 Functions</button>
+            <button class="chapter-activate" data-chapter="ch3">🚀 Load CH3 Functions</button>
         </header>
 
-        <section class="demo-section">
-            <div class="demo-step">
-                <h4>🔘 Function Types (Click → Console)</h4>
-                <button onclick="showFunctionTypes()">Function Declaration/Expression/Arrow</button>
-            </div>
+        <section class="chapter-section">
+            <h2>🔘 Function Types</h2>
+            <p>Click to see the difference between Declarations, Expressions, and Arrows.</p>
+            <button onclick="showFunctionTypes()">Run Demo</button>
             <div class="demo-area value1">
                 <h3>Live Output Area</h3>
             </div>
+        </section>
 
-            <div class="demo-step">
-                <h4>⚙️ Default Parameters</h4>
-                <button onclick="showDefaultParams()">welcome(user='Guest', time='day')</button>
-            </div>
+        <section class="chapter-section">
+            <h2>⚙️ Default Parameters</h2>
+            <p>Handling missing arguments gracefully.</p>
+            <button onclick="showDefaultParams()">Run Demo</button>
             <div class="demo-area value2">
                 <h3>Live Output Area</h3>
             </div>
+        </section>
 
-            <div class="demo-step">
-                <h4>🌍 Scope & Shadowing</h4>
-                <button onclick="showScope()">Global → Outer → Inner (Shadow!)</button>
-            </div>
+        <section class="chapter-section">
+            <h2>🌍 Scope & Shadowing</h2>
+            <p>Understanding how variables are accessed across different levels.</p>
+            <button onclick="showScope()">Run Demo</button>
             <div class="demo-area value3">
                 <h3>Live Output Area</h3>
             </div>
+        </section>
 
-            <div class="demo-step">
-                <h4>🔗 Method Binding</h4>
-                <button onclick="showCallApplyBind()">call/apply/bind Demo</button>
-            </div>
+        <section class="chapter-section">
+            <h2>🔗 Method Binding</h2>
+            <p>Using <code>call</code>, <code>apply</code>, and <code>bind</code> to control the <code>this</code> keyword.</p>
+            <button onclick="showCallApplyBind()">Run Demo</button>
             <div class="demo-area value4">
                 <h3>Live Output Area</h3>
             </div>
+        </section>
 
-            <div class="demo-step">
-                <h4>🔒 Advanced: IIFE + Closure</h4>
-                <button onclick="showIIFEClosure()">Immediately Invoked + Counter</button>
-            </div>
-
+        <section class="chapter-section">
+            <h2>🔒 Advanced: IIFE + Closure</h2>
+            <p>Creating private state and self-executing logic.</p>
+            <button onclick="showIIFEClosure()">Run Demo</button>
             <div class="demo-area value5">
                 <h3>Live Output Area</h3>
             </div>

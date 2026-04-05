@@ -1,22 +1,44 @@
 // CH01: Introduction - External JS + Console + Events
-console.log('%c🚀 CH1 JavaScript LOADED!', 'color: green; font-size: 16px; font-weight: bold');
+console.log('%c🚀 SMART HUB LOADED', 'color: #03dac6; font-size: 20px; font-weight: bold; text-shadow: 2px 2px #000;');
 
-// Step 1: Add event listener to ALL .ht1 elements (external JS)
-document.querySelectorAll('.ht1').forEach(header => {
-    header.addEventListener('click', function() {
-        alert('🎉 EXTERNAL JS Alert! Clicked via addEventListener from ch1.js');
-        console.log('Header clicked - External event listener working!');
+/**
+ * THE SMART SWITCH LOGIC
+ * We select the elements and add a "Listener" - a piece of code that waits for a click.
+ */
+const lightSwitch = document.getElementById('light-switch');
+const roomStatus = document.getElementById('room-status');
+
+if (lightSwitch) {
+    lightSwitch.addEventListener('click', function() {
+        // Toggle Logic
+        if (roomStatus.innerText.includes('OFF')) {
+            roomStatus.innerText = 'ON 💡';
+            roomStatus.style.color = '#bb86fc'; // Using your purple color
+            roomStatus.style.background = 'rgba(187, 134, 252, 0.2)';
+            console.log('%c[System]: Light turned ON', 'color: #bb86fc');
+        } else {
+            roomStatus.innerText = 'OFF 🌑';
+            roomStatus.style.color = '#03dac6'; // Using your teal color
+            roomStatus.style.background = 'rgba(3, 218, 198, 0.1)';
+            console.log('%c[System]: Light turned OFF', 'color: #03dac6');
+        }
+        
+        alert('External JS Alert: The Hub received your command!');
     });
-});
+}
 
-// Step 2: Console demonstrations (Open F12 → Console!)
-console.log('%c📱 Step 2: Console Methods Demo', 'color: blue; font-weight: bold');
-const demoHeader = document.querySelector('.special-header');
-console.debug('🔍 Debug:', demoHeader);
-console.dir(demoHeader);
-console.error('%c❌ ERROR Message (Yellow box)', 'color: white; background: red; padding: 2px');
-console.warn('%c⚠️ WARN Message (Orange)', 'color: white; background: orange; padding: 2px');
+/**
+ * CONSOLE DEMONSTRATION
+ * Helping the user understand the different "Security Levels" of logs.
+ */
+console.group('🛠️ Developer Diagnostic Log');
+console.log('%cINFO: Application started successfully.', 'color: #03dac6');
+console.warn('%cWARN: Running in demo mode. Some features may be limited.', 'color: #ffb74d');
+console.error('%cERROR: Critical system check failed (Just kidding, this is a demo!)', 'background: #cf6679; color: white; padding: 2px 5px; border-radius: 4px;');
 
-// Step 3: Confirm everything loaded
-console.log('%c✅ All CH1 demos ready! Click headers & check console.', 'color: green; font-size: 14px;');
+// Inspection Tool
+console.debug('Inspecting the Light Switch element:');
+console.dir(lightSwitch); 
+console.groupEnd();
 
+console.log('%c✅ CH1 Ready. Interact with the elements above!', 'color: #bb86fc; font-weight: bold');

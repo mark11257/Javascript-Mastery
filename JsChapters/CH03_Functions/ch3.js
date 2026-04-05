@@ -1,103 +1,107 @@
-// CH03: Functions - Button-triggered demos
-console.log('%c🚀 CH3 LOADED - Click buttons for function demos!', 'color: #f39c12; font-size: 16px;');
+// CH03: Functions - Logic for HTML integration
+console.log('%c🚀 CH3 LOADED - UI Output Ready!', 'color: #f39c12; font-size: 16px;');
 
-// Demo functions for HTML buttons
+// 1. Function Types
 function showFunctionTypes() {
     const output = document.querySelector('.value1');
-    output.innerHTML = `📝 Function Types Demo:
+    output.classList.add('output-area'); // Apply your CSS styling
+    
+    // Internal helper functions for the demo
+    const greet = (name) => `Hello, ${name}`;
+    function add(a, b) { return a + b; }
+    const multiply = function(a, b) { return a * b; };
+
+    output.innerHTML = `📝 **Function Types Demo:**
 Declaration: ${greet('User')}
 Expression: ${add(5, 3)}
 Arrow: ${multiply(4, 6)}
     
-✅ All 3 types work!
-
-F12 Console → Full execution trace`;
+✅ All 3 types work!`;
 }
 
-
-
+// 2. Default Parameters
 function showDefaultParams() {
     const output = document.querySelector('.value2');
+    output.classList.add('output-area');
+
     function welcome(user = 'Guest', time = 'day') {
         return `Good ${time}, ${user}!`;
     }
-    output.innerHTML = `⚙️ Default Parameters:
+
+    output.innerHTML = `⚙️ **Default Parameters:**
 Default: ${welcome()}
 Partial: ${welcome('Mark')}
 Full: ${welcome('Mark', 'evening')}
 
-✅ Defaults work automatically!
-
-F12 → Console details`;
+✅ Defaults handled successfully!`;
 }
 
-
+// 3. Scope & Shadowing
 function showScope() {
-    console.group('%c🌍 Scope & Shadowing', 'color: #3498db; font-size: 16px;');
+    const output = document.querySelector('.value3');
+    output.classList.add('output-area');
     
-    let globalVar = 'global';
+    let result = "🌍 **Scope & Shadowing Trace:**\n";
+    let globalVar = 'Global';
     
     function outer() {
-        let outerVar = 'outer';
-        console.log('Global:', globalVar);
-        console.log('Outer:', outerVar);
+        let outerVar = 'Outer';
+        result += `Outer function sees: ${globalVar} and ${outerVar}\n`;
         
         function inner() {
-            let innerVar = 'inner';
-            let outerVar = 'shadowed'; // Shadowing!
-            console.log('Inner:', innerVar);
-            console.log('Shadowed outerVar:', outerVar);
+            let innerVar = 'Inner';
+            let outerVar = 'Shadowed'; // Shadowing
+            result += `Inner function sees: ${innerVar}, ${globalVar}, and ${outerVar} (shadowed!)\n`;
         }
         inner();
     }
     outer();
-    
-    console.groupEnd();
+    output.innerText = result;
 }
 
+// 4. call/apply/bind
 function showCallApplyBind() {
-    console.group('%c🔗 call/apply/bind', 'color: #2ecc71; font-size: 16px;');
+    const output = document.querySelector('.value4');
+    output.classList.add('output-area');
+    
+    let result = "🔗 **Method Binding Trace:**\n";
     
     function introduce(age, city) {
-        console.log(`Hi, I'm ${this.name}, ${age} years old from ${city}`);
+        result += `Hi, I'm ${this.name}, ${age} years old from ${city}\n`;
     }
     
     const person = { name: 'Alice' };
     
-    introduce.call(person, 25, 'NYC');
-    introduce.apply(person, [30, 'LA']);
+    introduce.call(person, 25, 'NYC');       // Immediate
+    introduce.apply(person, [30, 'LA']);    // Immediate with Array
     
-    const bound = introduce.bind(person, 35, 'SF');
+    const bound = introduce.bind(person, 35, 'SF'); // Creates new function
     bound();
     
-    console.groupEnd();
+    output.innerText = result;
 }
+
+// 5. IIFE & Closure
+// We keep the counter outside so it persists between clicks
+let globalCounterCount = 0; 
 
 function showIIFEClosure() {
-    console.group('%c🔒 IIFE & Closure', 'color: #e67e22; font-size: 16px;');
+    const output = document.querySelector('.value5');
+    output.classList.add('output-area');
     
-    // IIFE
-    (function() {
-        console.log('IIFE runs immediately!');
+    let result = "";
+
+    // IIFE Demo
+    const iifeResult = (function() {
+        return "IIFE: I ran and disappeared immediately!\n";
     })();
     
-    // Closure
-    function counter() {
-        let count = 0;
-        return function() {
-            count++;
-            console.log('Count:', count);
-        }
-    }
-    const myCounter = counter();
-    myCounter();
-    myCounter();
+    // Closure Demo
+    globalCounterCount++;
     
-    console.groupEnd();
+    result = `🔒 **IIFE & Closure Demo:**\n${iifeResult}`;
+    result += `Closure Counter: ${globalCounterCount}\n`;
+    result += `(The variable 'count' stays alive in memory!)`;
+
+    output.innerText = result;
 }
-
-// Ready message
-setTimeout(() => {
-    console.log('%c✅ CH3 Functions ready! Click HTML buttons!', 'color: #27ae60; font-size: 14px;');
-}, 500);
-
