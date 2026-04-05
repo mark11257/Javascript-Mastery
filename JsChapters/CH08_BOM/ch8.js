@@ -1,28 +1,54 @@
-/*Browser Object Model (BOM) is a collection of objects that allow 
-JavaScript to interact with the web browser and its environment,
- beyond the content of the web page itself */
- 
+// CH08: Browser Object Model (BOM) Logic
+console.log('%c🌐 BOM Engine: System Online', 'color: #03dac6; font-weight: bold;');
 
+function writeLine(selector, text, isWarn = false) {
+    const area = document.querySelector(selector);
+    const color = isWarn ? "#ffeb3b" : "#03dac6";
+    area.innerHTML += `<p style="color: ${color}; font-family: monospace; margin: 5px 0;">>> ${text}</p>`;
+}
 
- // location object - gives info about current page URL
-console.log(location.href);       // full URL
-console.log(location.hostname);   // domain name
-console.log(location.pathname);   // path after domain
-console.log(location.protocol);   // http or https
+function resetArea(selector, title) {
+    document.querySelector(selector).innerHTML = `<h3>${title}</h3>`;
+}
 
- // navigator object - gives info about the browser
-console.log(navigator.userAgent);  // browser details
-console.log(navigator.language);  // browser language
-console.log(navigator.onLine);    // is browser online
+// 1. Window Demo
+function demoWindow() {
+    const area = '.value1';
+    resetArea(area, "Output: Window");
 
- // window object - represents the browser window
-console.log(window.innerWidth);   // window width
-console.log(window.innerHeight);  // window height
-window.alert("Hello from BOM");   // show alert
-console.log(window.document);     // access to document
+    writeLine(area, `Viewport Width: ${window.innerWidth}px`);
+    writeLine(area, `Viewport Height: ${window.innerHeight}px`);
+    writeLine(area, "Accessing global document through window...");
+    writeLine(area, `Document Title: ${window.document.title}`, true);
+}
 
- // history object - manages browser history
-console.log(history.length);      // number of pages in history
-// history.back();                 // go to previous page
-// history.forward();              // go to next page
-// history.go(-1);                 // go back 1 page
+// 2. Location Demo
+function demoLocation() {
+    const area = '.value2';
+    resetArea(area, "Output: Navigation");
+
+    // Using John Doe as a data example for a mock URL check
+    const mockURL = "https://example.com/profile/JohnDoe";
+    writeLine(area, "Mock Search: Checking profile for John Doe...");
+
+    writeLine(area, `Current Protocol: ${location.protocol}`);
+    writeLine(area, `Domain: ${location.hostname}`);
+    writeLine(area, `Current Path: ${location.pathname}`, true);
+    
+    writeLine(area, "Note: History length is currently " + history.length + " pages.");
+}
+
+// 3. Navigator Demo
+function demoNavigator() {
+    const area = '.value3';
+    resetArea(area, "Output: Identity");
+
+    writeLine(area, `Browser Engine: ${navigator.userAgent}`);
+    writeLine(area, `System Language: ${navigator.language}`);
+    
+    if(navigator.onLine) {
+        writeLine(area, "Connection Status: ONLINE", true);
+    } else {
+        writeLine(area, "Connection Status: OFFLINE", true);
+    }
+}
