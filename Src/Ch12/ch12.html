@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ch12: OOP - The Blueprint Era</title>
+    <link rel="stylesheet" href="../../LandingPage.css">
+    <script src="../../JsChapters/OOP/ch12.js" defer></script>
+    <style>
+        body.ch11-theme { background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%); color: #e0e0e0; }
+        .oop-card { background: #1e1e1e; border: 1px solid #444; border-radius: 12px; padding: 20px; margin: 20px 0; border-left: 5px solid #00bcd4; }
+        .btn-primary { background: #00bcd4; color: #121212; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; border-radius: 4px; margin: 5px; }
+        .btn-primary:hover { background: #00acc1; }
+        .demo-area { background: #000; border: 1px solid #333; padding: 15px; border-radius: 4px; min-height: 80px; margin-top: 10px; font-family: 'Courier New', monospace; }
+        .concept-tag { background: #333; color: #00bcd4; padding: 2px 8px; border-radius: 4px; font-size: 0.8rem; text-transform: uppercase; margin-right: 5px; }
+        .console-instruction { background: #111; border-left: 4px solid #00bcd4; padding: 15px; margin: 15px 0; color: #d4d4d4; font-size: 0.9rem; }
+    </style>
+</head>
+<body class="ch11-theme">
+    <nav class="allchapterbutton"><a href="../LandingPage.html">All Chapters</a></nav>
+    <nav><a href="../Ch10/ch10.html">← Previous Chapter</a></nav>
+    
+    <main>
+        <header class="container">
+            <h1> CH12: Object-Oriented Programming</h1>
+            <p>Moving from individual variables to <strong>Structured Blueprints</strong>.</p>
+        </header>
+
+        <section class="chapter-section container">
+            <h2>1. The Constructor Function</h2>
+            <p>Before ES6 "Classes," we used functions to build objects. A <strong>Constructor</strong> is a special function used with the <code>new</code> keyword to stamp out multiple objects of the same type.</p>
+            
+            <div class="oop-card">
+                <button class="btn-primary" onclick="demoConstructor()">Build "User" Objects</button>
+                <div id="out1" class="demo-area"><h3>Output: Constructor</h3></div>
+            </div>
+
+            <div class="console-instruction">
+function User(name, role) {<br>
+&nbsp;&nbsp;this.name = name;<br>
+&nbsp;&nbsp;this.role = role;<br>
+}<br>
+const user1 = new User("Mark", "Dev");
+            </div>
+        </section>
+
+        <section class="chapter-section container">
+            <h2>2. Classes & The Constructor</h2>
+            <p>Modern JS uses the <code>class</code> keyword. It’s cleaner and more readable. The <code>constructor()</code> method inside a class is where you initialize the object's properties.</p>
+            
+            
+
+            <div class="oop-card">
+                <button class="btn-primary" onclick="demoClass()">Spawn "Product" Class</button>
+                <div id="out2" class="demo-area"><h3>Output: Classes</h3></div>
+            </div>
+        </section>
+
+        <section class="chapter-section container">
+            <h2>3. Encapsulation (Private Data)</h2>
+            <p>Encapsulation is the act of hiding data. In modern JS, we use a <strong>hash (#)</strong> before a variable name to make it <strong>private</strong>. It cannot be accessed or changed from outside the class.</p>
+            
+            <div class="oop-card">
+                <button class="btn-primary" onclick="demoPrivate()">Test Private Bank Account</button>
+                <div id="out3" class="demo-area"><h3>Output: Security</h3></div>
+            </div>
+
+            <div class="console-instruction">
+class Bank {<br>
+&nbsp;&nbsp;#balance = 0; // Private! Cannot be touched directly.<br>
+}
+            </div>
+        </section>
+
+        <section class="chapter-section container">
+            <h2>4. Inheritance: The "Extends" Keyword</h2>
+            <p>Inheritance allows one class to derive features from another. A <code>Developer</code> class can <strong>inherit</strong> from a <code>Person</code> class. We use <code>super()</code> to call the parent's constructor.</p>
+            
+            
+
+            <div class="oop-card">
+                <button class="btn-primary" onclick="demoInheritance()">Inherit from "Animal"</button>
+                <div id="out4" class="demo-area"><h3>Output: Family Tree</h3></div>
+            </div>
+        </section>
+
+        <section class="chapter-section container">
+            <h2>5. Polymorphism (Many Shapes)</h2>
+            <p>Polymorphism allows a child class to change how a parent method works. For example, every animal <code>makesSound()</code>, but a Dog <em>barks</em> while a Cat <em>meows</em>.</p>
+            
+            <div class="oop-card">
+                <button class="btn-primary" onclick="demoPoly()">Trigger Poly-Sound</button>
+                <div id="out5" class="demo-area"><h3>Output: Sounds</h3></div>
+            </div>
+        </section>
+
+        <footer class="container" style="margin-top: 50px; border-top: 1px solid #333; padding-top: 20px;">
+    <h3>Mastery Complete: The Full-Stack Foundation</h3>
+    <p>Congratulations! You've moved from basic scripts to <strong>Object-Oriented Architecture</strong>. You now have the tools to build complex, scalable web applications.</p>
+    <a href="../LandingPage.html"><button class="btn-primary" style="background-color: #00bcd4; color: #121212;" type="button">Return to Dashboard</button></a>
+</footer>
+    </main>
+</body>
+</html>

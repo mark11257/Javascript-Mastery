@@ -1,55 +1,76 @@
-var show = document.querySelector(".text");
-var xhr = new XMLHttpRequest();
-var txt ="";
+// CH11: AJAX & XHR Engine
+console.log('%c🌐 AJAX Engine: Online', 'color: #4caf50; font-weight: bold;');
 
 /**
- * Fetches and displays profile data from profile.json using AJAX GET request.
- * Why: Demonstrates asynchronous data loading from a JSON file without page reload.
- * Logic: Opens GET request, sends it, sets up onreadystatechange callback to handle response
- * when ready (state 4) and successful (status 200). Parses JSON array and displays the
- * 3rd item (index 2) in formatted pre tag for readability.
+ * CORE AJAX FUNCTION
+ * This function targets the profile.json file in your root directory.
  */
-function displayInfo(){
-    // Step 1: Initialize GET request to local JSON file
-    xhr.open("GET","../profile.json");
-    // Step 2: Send the asynchronous request
-    xhr.send();
-    // Step 3: Callback triggered on state change
+function fetchProfile() {
+    const area = document.getElementById('profileResult');
+    const status = document.getElementById('statusIndicator');
+    
+    // 1. Create the Request Object
+    const xhr = new XMLHttpRequest();
+
+    // 2. Configure it: (Method, Path, Asynchronous?)
+    // We are looking for "profile.json" in your project root
+    xhr.open('GET', '../../profile.json', true);
+
+    // 3. Track the Progress (ReadyState Change)
     xhr.onreadystatechange = function() {
-        // Check if request is complete (readyState 4) and successful (status 200)
-        // Why this check: Ensures data is fully loaded and server responded OK before processing
-        if (xhr.readyState == 4 && xhr.status == 200) {
-            // Original note preserved
-            // MOVE THE UPDATE HERE
-            // Parse JSON string response into object array for structured access
-            txt = JSON.parse(xhr.responseText)
-            // Display 3rd profile (index 2) with formatting: null= no replacer, 4=indent spaces
-            // Why stringify + pre: Pretty-prints JSON for human-readable display in DOM
-            show.innerHTML = "<pre>"+JSON.stringify(txt[2], null, 4)+"</pre>"; 
-            // Log success for debugging/confirmation
-            console.log("Data received and displayed!");
+        console.log(`Current ReadyState: ${this.readyState}`);
+        
+        if (this.readyState < 4) {
+            status.innerText = "Connecting...";
+            status.className = "status-badge status-idle";
         }
-    }
+
+        // 4. Handle the Response
+        if (this.readyState === 4) {
+            if (this.status === 200) {
+                // Success!
+                status.innerText = "Success: 200 OK";
+                status.className = "status-badge status-success";
+                
+                // Process the JSON string into a JS Object
+                try {
+                    const userData = JSON.parse(this.responseText);
+                    displayData(userData);
+                } catch (e) {
+                    area.innerHTML = "<p style='color:red'>Error parsing JSON file.</p>";
+                }
+            } else {
+                // Error (e.g., 404 or 500)
+                status.innerText = `Error: ${this.status}`;
+                status.style.backgroundColor = "#b71c1c";
+                area.innerHTML = `<h3>Server Error</h3><p>Could not find profile.json. Ensure the file exists in your project root.</p>`;
+            }
+        }
+    };
+
+    // 5. Fire the request
+    xhr.send();
 }
 
 /**
- * Updates a text file via AJAX PUT request with user input from form.
- * Why: Shows how to send data to server (here a txt file) using HTTP PUT method,
- * mimicking RESTful updates. Prevents page reload for SPA-like behavior.
- * Logic: Stops form submit, grabs input value, opens/sends PUT with data.
- * Note: Real servers needed for PUT; this demos client-side.
- * @param {Event} e - Form submit event
+ * HELPER: Displaying the data in the UI
  */
-function updateInfo(e){
-    // Prevent default form submission to avoid page reload
-    // Why: Enables AJAX-only update for seamless UX
-    e.preventDefault();
-    // Get user input value from element with id="ajax"
-    var input = document.querySelector("#ajax");
-    // Open PUT request to target txt file (server must support PUT)
-    xhr.open("PUT","ajaxtest.txt");
-    // Send the input value as request body
-    xhr.send(input.value);
-    // Log for user/debug feedback (no response handler here for simplicity)
-    console.log("data added");
+function displayData(data) {
+    const area = document.getElementById('profileResult');
+    area.innerHTML = `<h3>Profile Loaded</h3>`;
+    
+    // Create a list to show the JSON properties
+    const list = document.createElement('ul');
+    list.style.listStyle = "none";
+    list.style.padding = "0";
+
+    // Loop through the object keys (name, role, etc. from your JSON)
+    for (let key in data) {
+        const li = document.createElement('li');
+        li.style.margin = "8px 0";
+        li.innerHTML = `<strong style="color:#4caf50; text-transform: capitalize;">${key}:</strong> ${data[key]}`;
+        list.appendChild(li);
+    }
+    
+    area.appendChild(list);
 }
