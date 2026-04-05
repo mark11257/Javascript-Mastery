@@ -3,74 +3,133 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CH02: JavaScript Language Basics - Javascript Mastery</title>
-    <script src="../../JsChapters/chapter-loader.js" defer></script>
+    <title>CH02: Language Basics - Mastery</title>
+    <script src="../../JsChapters/CH02_JavaScript_Basics/ch2.js" defer></script>
     <link rel="stylesheet" href="../../LandingPage.css">
-<style>
-      body.ch2-theme { }
-    </style>
-<body class="ch2-theme">
-
-
 </head>
-<body>
-    <nav>
-        <a href="../LandingPage.html">← Back to All Chapters</a>
+<body class="ch2-theme">
+    <nav class="allchapterbutton">
+        <a href="../LandingPage.html"> All Chapters</a>
     </nav>
-    
+    <nav>
+        <a href="../Ch1/ch1.html">← Previous Chapter</a>
+    </nav>
     <main>
         <header class="container">
-            <h1>📚 CH02: JavaScript Language Basics</h1>
-            <p>Variables, data types, operators, coercion, conditionals, loops & dialogues - the foundation of JavaScript!</p>
+            <h1 id="firsth">CH02: The Foundation</h1>
+            <p class="name">Variables, Logic, and Automation</p>
+            <p>Welcome to the engine room. This chapter covers how JavaScript <strong>stores data</strong>, makes <strong>logical decisions</strong>, and <strong>repeats tasks</strong> so you don't have to.</p>
             
-            <div class="demo-step">
-                <h4>📋 What You'll Learn:</h4>
-                <p><strong>var/let/const:</strong> Different variable declarations</p>
-                <p><strong>Type Coercion:</strong> Automatic type conversion (== vs ===)</p>
-                <p><strong>prompt/confirm:</strong> User input dialogues</p>
-                <p><strong>Loops:</strong> for/while/do-while in action</p>
-                <p><strong>switch:</strong> Multiple condition handling</p>
-            </div>
-            
-            <button class="chapter-activate demo-prompt" data-chapter="ch2">🚀 Load CH2 JavaScript & Start Interactive Demos</button>
         </header>
 
-        <section class="demo-section">
-            <div class="demo-step">
-                <h4>🎯 Interactive Name Prompt (Try It!)</h4>
-                <p>Load JS → Enter your name → Watch .name element update + error handling</p>
-                <h1 class="name">Your personalized greeting appears here...</h1>
+        <section class="chapter-section">
+            <h2>1. Variables: The Storage Units</h2>
+            <p>Think of a <strong>Variable</strong> as a labeled box in memory. You put data in, and you give it a name to find it later.</p>
+            <ul>
+                <li><strong>const:</strong> Use this for "Permanent" data. If you try to change it, the code will crash.</li>
+                <li><strong>let:</strong> Use this for data that "Changes" (like a game score or a user's age).</li>
+                <li><strong>var:</strong> The "Old Way." It has weird scoping rules that lead to bugs. <strong>Don't use it.</strong></li>
+            </ul>
+            
+            <button onclick="safeRun('demoVariables')">Test Storage</button>
+            <div class="demo-area value1"><h3>Live Output: Variables</h3></div>
+
+            <p><strong>Copy & Try this in your console:</strong></p>
+            <div class="console-instruction">
+const username = "John Doe"; // Locked<br>
+let level = 1;<br>
+level = 2; // This works!<br>
+console.log(username + " is at level " + level);
             </div>
+        </section>
 
-            <div class="demo-step">
-                <h4>🌈 Color Switch Statement</h4>
-                <p>After name prompt → Choose color (red/blue/green) → See custom message</p>
-                <p class="color-result">Your color message appears here...</p>
+        <section class="chapter-section general-tests">
+            <h2>2. Type Coercion & Equality</h2>
+            <p>JavaScript is "loose." It tries to be helpful by converting types automatically, which can be a nightmare if you aren't careful.</p>
+            <ul>
+                <li><strong>Loose Equality (==):</strong> Only checks the value. It thinks <code>5</code> and <code>"5"</code> are the same.</li>
+                <li><strong>Strict Equality (===):</strong> Checks <strong>Value + Type</strong>. This is what pros use 99% of the time.</li>
+                <li><strong>Math Coercion:</strong> Plus (<code>+</code>) usually turns things into <strong>Strings</strong> (concatenation), while Minus (<code>-</code>) turns them into <strong>Numbers</strong>.</li>
+            </ul>
+            
+            <button onclick="safeRun('demoCoercion')">Test Coercion</button>
+            <div class="demo-area value2"><h3>Live Output: Coercion</h3></div>
+
+            
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+console.log(10 == "10");  // true (Loose)<br>
+console.log(10 === "10"); // false (Strict)<br>
+console.log("10" + 5);    // "105" (Wait, what?)<br>
+console.log("10" - 5);    // 5 (Math logic applied)
             </div>
+        </section>
 
-            <div class="demo-step">
-                <h4>🔄 Click-to-Learn Console Demos (F12 → Console)</h4>
-                <p>Each button runs specific examples + logs to console!</p>
-                <button onclick="showVariables()">📦 Show Variables Demo</button>
-                <button onclick="showCoercionBasics()">🔄 Coercion Basics</button>
-                <button onclick="showEquality()">⚖️ == vs ===</button>
-                <div class="demo-area">
-                    <h3 class="loop">For/While Output Here</h3>
-                    <h3 class="loop1">Loop Results</h3>
-                </div>
+        <section class="chapter-section">
+            <h2>3. Conditionals: The Fork in the Road</h2>
+            <p>Your code isn't smart until it can choose a path. We use <strong>Boolean Logic</strong> (True or False) to decide what happens next.</p>
+            <ul>
+                <li><strong>If/Else:</strong> Great for simple "Yes/No" or "This/That" scenarios.</li>
+                <li><strong>Switch:</strong> Cleaner when you have <strong>multiple specific cases</strong> (like a menu or color picker).</li>
+            </ul>
+            
+            <button onclick="safeRun('demoConditionals')">Test Logic</button>
+            <div class="demo-area value3"><h3>Live Output: Branching</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+let hour = 14;<br>
+if (hour < 12) { <br>
+&nbsp;&nbsp;console.log("Good Morning"); <br>
+} else { <br>
+&nbsp;&nbsp;console.log("Good Afternoon"); <br>
+}
             </div>
+        </section>
 
+        <section class="chapter-section">
+            <h2>4. Loops: Stop Repeating Yourself</h2>
+            <p>Loops are for <strong>Automation</strong>. If you need to do something 100 times, you don't write 100 lines of code; you write one loop.</p>
+            <ul>
+                <li><strong>For Loop:</strong> Used when you know <strong>exactly</strong> how many times to run (e.g., "Count to 10").</li>
+                <li><strong>While Loop:</strong> Used when you want to keep running <strong>until</strong> something happens (e.g., "Keep asking for a password until it's correct").</li>
+            </ul>
+            
+            <button onclick="safeRun('demoLoops')">Test Loops</button>
+            <div class="demo-area value4"><h3>Live Output: Loops</h3></div>
 
-            <div class="demo-step">
-                <h4>💡 What ch2.js Demonstrates:</h4>
-                <ol>
-                    <li><strong>prompt() + try/catch:</strong> Safe user input with validation</li>
-                    <li><strong>switch statement:</strong> Color matching (case-insensitive)</li>
-                    <li><strong>3 Loop Types:</strong> for/while/do-while with live output</li>
-                    <li><strong>Coercion Examples:</strong> 20+ console examples</li>
-                </ol>
+            
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+for (let i = 1; i <= 5; i++) {<br>
+&nbsp;&nbsp;console.log("Iteration number: " + i);<br>
+}
             </div>
         </section>
     </main>
+
+    <script>
+        // CRITICAL: This handles the "JS not loaded" issue
+        function safeRun(functionName) {
+            if (typeof window[functionName] === "function") {
+                window[functionName]();
+            } else {
+                alert("🛑 SYSTEM ERROR: You must click 'Load Chapter 2 JS' at the top first!");
+            }
+        }
+    </script>
+    <footer class="container" style="margin-top: 50px;">
+    <h3>Next Level: Building Reusable Machines</h3>
+    <p>
+        Storing data is only half the battle. In <strong>Chapter 3</strong>, we dive into <strong>Functions</strong>. 
+        Instead of writing the same code 100 times, you'll learn to wrap your logic into a single, reusable "machine" 
+        that takes an <strong>input</strong> and spits out a <strong>result</strong>.
+    </p>
+    <a href="../Ch3/ch3.html">
+        <button type="button">Advance to Chapter 3: Functions</button>
+    </a>
+    </footer>
 </body>
 </html>

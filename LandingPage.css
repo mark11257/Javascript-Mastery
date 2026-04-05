@@ -170,6 +170,10 @@ nav a {
   padding: 12px 24px; text-decoration: none; border-radius: 8px; 
   display: inline-block; margin-bottom: 20px;
 }
+.allchapterbutton {
+  position:fixed;
+  right: 0;
+}
 
 .chapter-link { 
   background: linear-gradient(135deg, #03dac6, #00b8a9) !important; 
