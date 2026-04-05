@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH11: AJAX & Data Fetching</title>
+    <link rel="stylesheet" href="../../LandingPage.css">
+    <script src="../../JsChapters/CH11_AJAX_JSON/ch11.js" defer></script>
+    <style>
+        body.ch11-theme { background: linear-gradient(135deg, #121212 0%, #1e2a1e 100%); color: #e0e0e0; }
+        .ajax-card { background: #1e1e1e; border: 1px solid #333; border-radius: 12px; padding: 25px; margin: 20px 0; border-left: 5px solid #4caf50; }
+        .btn-primary { background: #4caf50; color: white; border: none; padding: 12px 24px; cursor: pointer; font-weight: bold; border-radius: 4px; transition: 0.3s; }
+        .btn-primary:hover { background: #45a049; transform: translateY(-2px); }
+        .demo-area { background: #000; border: 1px solid #444; padding: 15px; border-radius: 4px; min-height: 100px; margin-top: 15px; }
+        .status-badge { display: inline-block; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; margin-bottom: 10px; }
+        .status-idle { background: #333; color: #888; }
+        .status-success { background: #1b5e20; color: #81c784; }
+        
+        .console-instruction { background: #000; border-left: 4px solid #4caf50; padding: 15px; font-family: 'Courier New', monospace; font-size: 0.9rem; color: #d4d4d4; margin: 15px 0; }
+        
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; }
+        th, td { border: 1px solid #333; padding: 12px; text-align: left; }
+        th { color: #4caf50; }
+    </style>
+</head>
+<body class="ch11-theme">
+    <nav class="allchapterbutton"><a href="../LandingPage.html">All Chapters</a></nav>
+    <nav><a href="../Ch10/ch10.html">← Previous Chapter</a></nav>
+    
+    <main>
+        <header class="container">
+            <h1>🌐 CH11: AJAX & The XHR Object</h1>
+            <p>Mastering the art of <strong>Asynchronous</strong> communication.</p>
+        </header>
+
+        <section class="chapter-section container">
+            <h2>1. What is AJAX?</h2>
+            <p>AJAX stands for <strong>Asynchronous JavaScript and XML</strong>. It allows you to send and receive data from a server in the background. This means you can update a user's profile picture or load new posts without the user ever seeing a "loading" spinner on the tab.</p>
+            
+            
+
+            <p><strong>The "Asynchronous" Part:</strong> Your code doesn't stop and wait for the server. It says, "Go get this data, and call me when you're done. I'm going to keep running other things in the meantime."</p>
+        </section>
+
+        <section class="chapter-section container">
+            <h2>2. The XMLHttpRequest (XHR) Object</h2>
+            <p>This is the built-in browser object that does the heavy lifting. To use it, you follow 4 steps:</p>
+            <ol>
+                <li>Create the <code>new XMLHttpRequest()</code> object.</li>
+                <li>Use <code>.open()</code> to set the method (GET/POST) and the URL.</li>
+                <li>Define the <code>.onreadystatechange</code> or <code>.onload</code> handler.</li>
+                <li>Call <code>.send()</code>.</li>
+            </ol>
+            
+            <div class="ajax-card">
+                <div id="statusIndicator" class="status-badge status-idle">Ready to Request</div>
+                <button class="btn-primary" onclick="fetchProfile()">Request profile.json</button>
+                <div id="profileResult" class="demo-area"><h3>Output: JSON Data</h3></div>
+            </div>
+        </section>
+
+        <section class="chapter-section container">
+            <h2>3. ReadyStates and Status Codes</h2>
+            <p>The XHR object goes through 5 stages of "Readiness." We usually wait for <strong>State 4</strong> (Completed).</p>
+            <table>
+                <tr><th>readyState</th><th>Meaning</th></tr>
+                <tr><td>0 (UNSENT)</td><td>Client has been created.</td></tr>
+                <tr><td>1 (OPENED)</td><td>open() has been called.</td></tr>
+                <tr><td>3 (LOADING)</td><td>Downloading; responseText holds partial data.</td></tr>
+                <tr><td>4 (DONE)</td><td>The operation is complete!</td></tr>
+            </table>
+
+            <p style="margin-top:20px;">We also check the <strong>HTTP Status</strong>. <code>200</code> means "OK", while <code>404</code> means "Not Found".</p>
+        </section>
+
+        <section class="chapter-section container">
+            <h2>4. Processing JSON Data</h2>
+            <p>The server sends data as a **string**. To use it in JavaScript, we must turn that string into an object using <code>JSON.parse()</code>.</p>
+            
+            <div class="console-instruction">
+// Inside the XHR onload function:<br>
+let data = JSON.parse(this.responseText);<br>
+console.log(data.name); // Accessing your profile.json!
+            </div>
+        </section>
+        <footer class="container" style="margin-top: 50px; border-top: 1px solid #333; padding-top: 20px;">
+            <h3>Next Level: Structured Blueprints</h3>
+            <p>You can fetch data, but can you organize it? In <strong>Chapter 12</strong>, we dive into Object-Oriented Programming (OOP) to build reusable classes and professional code structures.</p>
+            <a href="../Ch12/ch12.html"><button class="btn-primary" type="button">Advance to Chapter 12</button></a>
+        </footer>
+    </main>
+</body>
+</html>

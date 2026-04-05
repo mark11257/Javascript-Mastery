@@ -3,144 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Javascript Mastery - All Chapters Test Page</title>
-<script src="../JsChapters/chapter-loader.js" defer></script>
-    <link rel="stylesheet" href="../LandingPage.css"> 
+    <title>JavaScript Mastery - Dashboard</title>
     <style>
-      .chapter-activate {
-        background: #03dac6;
-        margin-left: 10px;
-        padding: 4px 8px;
-        font-size: 0.8rem;
-      }
-      .chapter-activate.active {
-        background: #bb86fc;
-      }
+        /* Base Theme */
+        body { 
+            background: linear-gradient(135deg, #121212 0%, #1a1a2e 100%); 
+            color: #e0e0e0; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Site Introduction Section */
+        .hero-section {
+            text-align: center;
+            padding: 60px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid #333;
+        }
+        .hero-section h1 {
+            color: #00bcd4;
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        .hero-section p {
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+            color: #b0b0b0;
+            font-size: 1.1rem;
+        }
+
+        /* Carousel Layout */
+        .carousel-wrapper {
+            position: relative;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 40px;
+        }
+
+        .carousel-track {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            padding: 20px 0;
+            /* Hide scrollbar for cleaner look */
+            scrollbar-width: none; 
+            -ms-overflow-style: none;
+        }
+        .carousel-track::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Chapter Cards */
+        .card {
+            flex: 0 0 300px; /* Card width */
+            scroll-snap-align: center;
+            background: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: transform 0.3s, border-color 0.3s;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: #00bcd4;
+        }
+        
+        .card-header {
+            color: #00bcd4;
+            font-size: 0.9rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        .card h3 {
+            margin: 0 0 15px 0;
+            font-size: 1.5rem;
+            color: #fff;
+        }
+        .card p {
+            color: #a0a0a0;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* Buttons */
+        .btn-primary {
+            background: #00bcd4;
+            color: #121212;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-weight: bold;
+            border-radius: 6px;
+            text-decoration: none;
+            text-align: center;
+            transition: 0.3s;
+            display: block;
+        }
+        .btn-primary:hover {
+            background: #00acc1;
+        }
+
+        /* Carousel Navigation Arrows */
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 10;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .nav-btn:hover { background: #00bcd4; color: #121212; }
+        .prev-btn { left: 0; }
+        .next-btn { right: 0; }
+
     </style>
 </head>
 <body>
+
     <main>
-        <header class="container">
-            <h1 onclick="alert('internal click event occured')" id="firsth">Javascript Mastery - All Chapters</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore repellendus excepturi consequatur...</p>
-            <h3 class="ht1">Javascript - Click for Alert (CH1)</h3>
-            <h1 class="name">Welcome (Dynamic - CH1/2) </h1>
+        <header class="hero-section">
+            <h1>JavaScript Mastery Dashboard</h1>
+            <p>Welcome to the ultimate JavaScript learning environment. This project documents the complete journey from basic language syntax to advanced Object-Oriented Architecture and Asynchronous data fetching. Scroll through the chapters below to explore interactive lessons, live code tests, and detailed explanations.</p>
         </header>
 
-        <section class="chapter-section" id="ch1">
-            <h2>CH01: Introduction <a href="Ch1/ch1.html" class="chapter-link">Go to CH1 Page →</a></h2>
-            <p><strong>Dedicated Chapter Page:</strong> Code editors, Brackets, JS execution, DevTools, console logging.</p>
-            <p class="demo-teaser">Interactive demos with JS loader button & full explanations!</p>
+        <section class="carousel-wrapper">
+            <button class="nav-btn prev-btn" id="slideLeft">❮</button>
+            
+            <div class="carousel-track" id="track">
+                
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 01</div>
+                        <h3>Introduction</h3>
+                        <p>Get started with the fundamentals. Learn how to execute JS, use the DevTools console, and understand the environment.</p>
+                    </div>
+                    <a href="Ch1/ch1.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 02</div>
+                        <h3>Language Basics</h3>
+                        <p>Master the building blocks: variables, data types, type coercion, conditionals, and looping structures.</p>
+                    </div>
+                    <a href="Ch2/ch2.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 03</div>
+                        <h3>Functions</h3>
+                        <p>Dive into reusable code. Covering function types, scope, defaults, IIFE, closures, and the call/bind methods.</p>
+                    </div>
+                    <a href="Ch3/ch3.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 04</div>
+                        <h3>Built-in Objects</h3>
+                        <p>Utilize JavaScript's native tools. Explore String methods, Regular Expressions, Array manipulation, and the Date object.</p>
+                    </div>
+                    <a href="Ch4/ch4.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 05</div>
+                        <h3>Error Handling</h3>
+                        <p>Write resilient code. Learn how to catch crashes before they happen using try, catch, finally, and the Error object.</p>
+                    </div>
+                    <a href="Ch5/ch5.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 06</div>
+                        <h3>Objects</h3>
+                        <p>Build custom structures using Factory and Constructor functions, and secure data using property descriptors.</p>
+                    </div>
+                    <a href="Ch6/ch6.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 07</div>
+                        <h3>Function Objects</h3>
+                        <p>Understand the deeper mechanics of functions as objects, the scope chain, and advanced closure patterns.</p>
+                    </div>
+                    <a href="Ch7/ch7.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 08</div>
+                        <h3>The BOM</h3>
+                        <p>Control the Browser Object Model. Manipulate the window, utilize timers, and read history and location data.</p>
+                    </div>
+                    <a href="Ch8/ch8.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 09</div>
+                        <h3>The DOM</h3>
+                        <p>Manipulate the page. Select nodes, create HTML elements on the fly, manage classes, and store user cookies.</p>
+                    </div>
+                    <a href="Ch9/ch9.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 10</div>
+                        <h3>Events Mastery</h3>
+                        <p>Make the page reactive. Capture mouse clicks, keyboard strokes, form submissions, and manage bubbling phases.</p>
+                    </div>
+                    <a href="Ch10/ch10.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 11</div>
+                        <h3>AJAX & JSON</h3>
+                        <p>Communicate with servers in the background. Master the XHR object, handle JSON data, and manage ready states.</p>
+                    </div>
+                    <a href="Ch11_AJAX_JSON/ch11.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+                <div class="card">
+                    <div>
+                        <div class="card-header">Chapter 12</div>
+                        <h3>Object-Oriented (OOP)</h3>
+                        <p>Architect scalable applications using modern ES6 Classes, Inheritance, Polymorphism, and Encapsulation.</p>
+                    </div>
+                    <a href="OOP/ch12.html" class="btn-primary">Explore Chapter</a>
+                </div>
+
+            </div>
+            
+            <button class="nav-btn next-btn" id="slideRight">❯</button>
         </section>
-
-
-        <section class="chapter-section" id="ch2">
-            <h2>CH02: Language Basics <a href="Ch2/ch2.html" class="chapter-link">Go to CH2 Page →</a></h2>
-            <p><strong>Dedicated Chapter Page:</strong> Variables/data types, Operators/coercion, Conditionals/loops, Dialogues.</p>
-            <p class="demo-teaser">Interactive prompts, loops, type conversion demos!</p>
-        </section>
-
-
-        <section class="chapter-section" id="ch3">
-            <h2>CH03: Functions <a href="Ch3/ch3.html" class="chapter-link">Go to CH3 Page →</a></h2>
-            <p><strong>Dedicated Chapter:</strong> Function types, defaults, scope, call/apply/bind, IIFE, closures</p>
-            <p class="demo-teaser">5x interactive buttons → console demonstrations!</p>
-        </section>
-
-
-        <!-- CH4 Built-ins -->
-        <!-- CH04 Built-in Objects -->
-        <section class="chapter-section" id="ch4">
-<h2>CH04: Built-ins <a href="Ch4/ch4.html" class="chapter-link">Go to CH4 Page →</a></h2>
-
-            <p><strong>About:</strong> String/methods, RegExp/replace, Array/methods, Associative Array, Date.</p>
-            <p>Console tests for strings/arrays/date.</p>
-            <div class="demo-area"></div>
-        </section>
-
-        <!-- CH5 Error Handling (placeholder) -->
-        <!-- CH05 Error Object -->
-        <section class="chapter-section" id="ch5">
-<h2>CH05: Error Handling <a href="Ch5/ch5.html" class="chapter-link">Go to CH5 Page →</a></h2>
-
-            <p><strong>About:</strong> Error object, try/catch/finally, onError handling.</p>
-            <div class="demo-area"></div>
-        </section>
-
-        <!-- CH6 Objects -->
-        <!-- CH06 Object Object -->
-        <section class="chapter-section" id="ch6">
-            <h2>CH06: Objects <button class="chapter-activate" data-chapter="ch6">Load CH6 JS</button></h2>
-            <p><strong>About:</strong> Custom object creation, Factory/constructor functions, Methods, defineProperty (data/accessor descriptors).</p>
-            <div class="demo-area"></div>
-        </section>
-
-        <!-- CH7 Function Objects (placeholder) -->
-        <!-- CH07 Function Object -->
-        <section class="chapter-section" id="ch7">
-            <h2>CH07: Function Objects <button class="chapter-activate" data-chapter="ch7">Load CH7 JS</button></h2>
-            <p><strong>About:</strong> Function object, IIFE, Properties/methods, Inner functions/scope chain, Closure.</p>
-            <div class="demo-area"></div>
-        </section>
-
-        <!-- CH8 BOM -->
-        <!-- CH08 BOM -->
-        <section class="chapter-section" id="ch8">
-            <h2>CH08: BOM <button class="chapter-activate" data-chapter="ch8">Load CH8 JS</button></h2>
-            <p><strong>About:</strong> Window/timers/history/location/navigator/document.</p>
-            <div class="demo-area"></div>
-        </section>
-
-        <!-- CH9 DOM -->
-        <!-- CH09 DOM -->
-        <section class="chapter-section" id="ch9">
-            <h2>CH09: DOM <button class="chapter-activate" data-chapter="ch9">Load CH9 JS</button></h2>
-            <p><strong>About:</strong> Nodes hierarchy/selectors, Modifying content/classes, Create nodes, Collections, Cookies (create/read/delete).</p>
-            <p>Tests: Selectors, forms name="username", .new-class.</p>
-            <form name="myForm">
-                <input type="text" name="username" class="username">
-            </form>
-            <div class="demo-area new-class"></div>
-        </section>
-
-        <!-- CH10 Events -->
-        <!-- CH10 Events -->
-        <section class="chapter-section" id="ch10">
-            <h2>CH10: Events <button class="chapter-activate" data-chapter="ch10">Load CH10 JS</button></h2>
-            <p><strong>About:</strong> Mouse/onsubmit/onfocus events, 'this', preventDefault, Capturing/bubbling, addEventListener, Custom events.</p>
-            <button id="myButton" class="myButton">Hover (CH10)</button>
-            <button id="fireSeen">Fire Custom Event</button>
-            <div id="customEventStatus">Waiting...</div>
-            <input type="text" id="myInput" placeholder="Type...">
-        </section>
-
-        <!-- CH11 AJAX JSON -->
-        <!-- CH11 AJAX JSON -->
-        <section class="chapter-section" id="ch11">
-            <h2>CH11: AJAX/JSON <button class="chapter-activate" data-chapter="ch11">Load CH11 JS</button></h2>
-            <p><strong>About:</strong> XHR/AJAX requests, JSON handling.</p>
-            <form id="myForm" onsubmit="updateInfo(event)">
-                <input type="text" id="ajax" placeholder="PUT text">
-                <input type="submit" value="Update">
-            </form>
-            <button class="btn1" onclick="displayInfo()">Display JSON</button>
-            <div class="value demo-area"></div>
-            <div class="text demo-area"></div>
-        </section>
-
-        <!-- OOP Section -->
-        <section class="chapter-section" id="ch12">
-            <h2>CH12: OOP <button class="chapter-activate" data-chapter="ch12">Load OOP JS</button></h2>
-            <p><strong>About:</strong> Prototypes, Classes (ES6), Inheritance, Encapsulation, Polymorphism, Factory Pattern.</p>
-            <p>Tests: OOP demos, console object interactions.</p>
-            <div class="demo-area"></div>
-        </section>
-
-        <!-- No generic forms - chapter-specific only -->
-
-        <!-- Legacy container for JS -->
-        <div class="container" id="divone"></div>
     </main>
+
+    <script>
+        // Carousel Scroll Logic
+        const track = document.getElementById('track');
+        const slideLeft = document.getElementById('slideLeft');
+        const slideRight = document.getElementById('slideRight');
+
+        // Scroll amount is roughly the width of one card + gap
+        const scrollAmount = 320; 
+
+        slideLeft.addEventListener('click', () => {
+            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+        });
+
+        slideRight.addEventListener('click', () => {
+            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+        });
+    </script>
 </body>
 </html>
-

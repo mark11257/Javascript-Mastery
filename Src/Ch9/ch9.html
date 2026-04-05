@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CH09: DOM & Cookies - Mastery</title>
+    <link rel="stylesheet" href="../../LandingPage.css">
+    <script src="../../JsChapters/CH09_DOM/ch.9.js" defer></script>
+    <script src="../../JsChapters/CH09_DOM/ch.9-cookies.js" defer></script>
+    <style>
+        body.ch9-theme { background: linear-gradient(135deg, #121212 0%, #1a2e2e 100%); color: #e0e0e0; }
+        .demo-area h3 { color: #888; font-size: 0.8rem; margin: 0; text-transform: uppercase; }
+        .btn-primary { background: #ff9800; color: #121212; border: none; padding: 12px 24px; cursor: pointer; font-weight: bold; border-radius: 4px; transition: 0.3s; margin-top: 10px; }
+        .btn-primary:hover { background: #e68a00; transform: translateY(-2px); }
+        .btn-secondary { background: transparent; border: 2px solid #ff9800; color: #ff9800; padding: 10px 20px; cursor: pointer; border-radius: 4px; }
+        
+        .cookie-form { background: #1e1e1e; padding: 25px; border-radius: 12px; margin: 20px 0; border: 1px solid #333; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 8px; font-weight: bold; color: #ff9800; }
+        .form-group input[type="text"], .form-group input[type="password"] { width: 100%; padding: 10px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 4px; }
+        
+        .gender-container { display: flex; gap: 20px; align-items: center; margin-top: 10px; }
+        .gender-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+        .gender-option input { cursor: pointer; accent-color: #ff9800; width: 18px; height: 18px; }
+
+        .console-instruction { background: #000; border-left: 4px solid #ff9800; padding: 15px; font-family: 'Courier New', monospace; font-size: 0.9rem; margin: 15px 0; line-height: 1.5; color: #d4d4d4; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #1a1a1a; }
+        th, td { border: 1px solid #333; padding: 12px; text-align: left; }
+        th { color: #ff9800; }
+    </style>
+</head>
+<body class="ch9-theme">
+    <nav class="allchapterbutton">
+        <a href="../LandingPage.html"> All Chapters</a>
+    </nav>
+    <nav>
+        <a href="../Ch8/ch8.html">← Previous Chapter</a>
+    </nav>
+    
+    <main>
+        <header class="container">
+            <h1 id="firsth">CH09: The DOM & Persistence</h1>
+            <p class="name">Directing the Digital Stage</p>
+            <p>JavaScript isn't just for math—it's for <strong>Manipulation</strong>. We will learn how to rewrite the page on the fly and save user data like <strong>John Doe</strong> so it survives a page refresh.</p>
+        </header>
+
+        <section class="chapter-section">
+            <h2>1. Traditional Selection</h2>
+            <p>The original methods for finding elements. <code>getElementById</code> returns a single object, while <code>getElementsByTagName</code> returns an <strong>HTMLCollection</strong> (which acts like an array).</p>
+            
+            <div class="form-row">
+                <button class="btn-primary" onclick="demoSelection()">Run Selection</button>
+                <button class="btn-secondary" onclick="resetArea('.value1', 'Output: Tradition')">Clear</button>
+            </div>
+            <div class="demo-area value1"><h3>Output: Tradition</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+const myHeader = document.getElementById("firsth");<br>
+const allParagraphs = document.getElementsByTagName("p");<br>
+console.log("Paragraph Count: " + allParagraphs.length);
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>2. The Universal Selector</h2>
+            <p><code>querySelector</code> is the modern standard. It uses CSS syntax. <code>querySelectorAll</code> returns a <strong>NodeList</strong>, which is a static snapshot of elements.</p>
+            
+            <div class="form-row">
+                <button class="btn-primary" onclick="demoQuery()">Find .name</button>
+                <button class="btn-secondary" onclick="resetArea('.value2', 'Output: Query')">Clear</button>
+            </div>
+            <div class="demo-area value2"><h3>Output: Query</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+// Finds first element with class 'name'<br>
+const subHeader = document.querySelector(".name");<br>
+subHeader.style.borderBottom = "1px solid #ff9800";
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>3. Content Properties</h2>
+            <p><strong>innerHTML</strong> parses the string as HTML (dangerous if from users!), while <strong>innerText</strong> treats it as raw text.</p>
+            
+            
+
+            <div class="form-row">
+                <button class="btn-primary" onclick="demoContent()">Swap Content</button>
+                <button class="btn-secondary" onclick="resetArea('.value3', 'Output: Content')">Clear</button>
+            </div>
+            <div class="demo-area value3"><h3>Output: Content</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+const box = document.querySelector(".value3");<br>
+box.innerHTML = "&lt;button&gt;I am a real button&lt;/button&gt;";<br>
+box.innerText = "&lt;button&gt;I am just text&lt;/button&gt;";
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>4. Creating Elements</h2>
+            <p>Elements created with <code>createElement</code> live in memory first. They don't appear on the screen until you <strong>append</strong> them to a parent node.</p>
+            
+            <div class="form-row">
+                <button class="btn-primary" onclick="demoNodes()">Append New Node</button>
+                <button class="btn-secondary" onclick="resetArea('.value4', 'Output: Nodes')">Clear</button>
+            </div>
+            <div class="demo-area value4"><h3>Output: Nodes</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+const span = document.createElement("span");<br>
+span.innerText = "New dynamic item";<br>
+document.body.appendChild(span);
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>5. Tree Navigation</h2>
+            <p>You can "walk" the DOM using <code>parentElement</code>, <code>nextSibling</code>, and <code>children</code>. This is useful when you don't have IDs for every element.</p>
+            
+            <div class="form-row">
+                <button class="btn-primary" onclick="demoTraversal()">Find Parent</button>
+                <button class="btn-secondary" onclick="resetArea('.value5', 'Output: Family')">Clear</button>
+            </div>
+            <div class="demo-area value5"><h3>Output: Family</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+const current = document.querySelector(".chapter-section");<br>
+console.log("Parent Tag: " + current.parentElement.tagName);
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>6. Form Collections</h2>
+            <p>The <code>document.forms</code> collection is an easy way to access all inputs inside a <code>&lt;form&gt;</code> without writing complex selectors.</p>
+            
+            <div class="cookie-form">
+                <form id="myForm" onsubmit="saveInfo(event)">
+                    <div class="form-group">
+                        <label>Username:</label>
+                        <input type="text" name="username" class="username" value="John Doe">
+                    </div>
+                    <div class="form-group">
+                        <label>Password:</label>
+                        <input type="password" name="password" class="password">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender:</label>
+                        <div class="gender-container">
+                            <label class="gender-option"><input type="radio" name="gender" class="gender" value="male" checked> Male</label>
+                            <label class="gender-option"><input type="radio" name="gender" class="gender" value="female"> Female</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn-primary">Save to Cookie</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>7. The Cookie Rulebook</h2>
+            <p>A cookie is not just a piece of data. It follows a strict "General Rule" syntax. If you miss a semicolon, the browser won't store it correctly.</p>
+            
+            <table>
+                <tr>
+                    <th>Part</th>
+                    <th>Example</th>
+                    <th>Purpose</th>
+                </tr>
+                <tr>
+                    <td><strong>Name=Value</strong></td>
+                    <td><code>UserName=JohnDoe</code></td>
+                    <td>The actual data pair.</td>
+                </tr>
+                <tr>
+                    <td><strong>Expires</strong></td>
+                    <td><code>expires=Sun, 05 Apr 2026...</code></td>
+                    <td>How long the data lives.</td>
+                </tr>
+                <tr>
+                    <td><strong>Path</strong></td>
+                    <td><code>path=/</code></td>
+                    <td>Which pages can see the cookie.</td>
+                </tr>
+            </table>
+
+            <p><strong>The Format Template:</strong></p>
+            <div class="console-instruction">
+document.cookie = "key=value; expires=date; path=/";
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>8. The Grand Reveal</h2>
+            <p>Use the button below to read the full stored record from your cookies (Name, Password, and Gender).</p>
+            
+            <div class="form-row">
+                <button class="btn-primary" onclick="showAllStoredData()">Show All Stored Data</button>
+                <button class="btn-secondary" onclick="deleteInfo('UserNameCookie')">Delete Username</button>
+            </div>
+            <div class="demo-area value10"><h3>Output: Full Record</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+// Logic to read all: <br>
+const allData = document.cookie;<br>
+console.log("Raw Cookie String: " + allData);
+            </div>
+        </section>
+
+        <footer class="container" style="margin-top: 50px; border-top: 1px solid #333; padding-top: 20px;">
+            <h3>Next Level: Event Listeners</h3>
+            <p>Ready to make these buttons do more? In <strong>Chapter 10</strong>, we handle clicks, hovers, and keyboard events.</p>
+            <a href="../Ch10/ch10.html"><button class="btn-primary" type="button">Advance to Chapter 10</button></a>
+        </footer>
+    </main>
+</body>
+</html>

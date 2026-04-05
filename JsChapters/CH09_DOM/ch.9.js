@@ -1,73 +1,53 @@
-// DOM
+// CH09: DOM Mastery Logic
+console.log('%c🌳 DOM Engine Online', 'color: #ff9800; font-weight: bold;');
 
-// selecting element from DOM
-    // by  ID
+function writeLine(selector, text, isWarn = false) {
+    const area = document.querySelector(selector);
+    const color = isWarn ? "#ffeb3b" : "#ff9800";
+    area.innerHTML += `<p style="color: ${color}; font-family: monospace; margin: 5px 0;">>> ${text}</p>`;
+}
+
+function resetArea(selector, title) {
+    document.querySelector(selector).innerHTML = `<h3>${title}</h3>`;
+}
+
+function demoSelection() {
+    const area = '.value1';
+    resetArea(area, "Output: Tradition");
     var elem = document.getElementById("firsth");
-    console.log(elem);
+    writeLine(area, "Found via ID: " + elem.id);
+    var tags = document.getElementsByTagName("p");
+    writeLine(area, "Found " + tags.length + " total paragraphs.");
+}
 
-    // by class
-    var elem = document.getElementsByClassName("ht1");
-    console.log(elem);
+function demoQuery() {
+    const area = '.value2';
+    resetArea(area, "Output: Modern");
+    var elem = document.querySelector(".name");
+    writeLine(area, "QuerySelector (.name) caught: " + elem.innerText);
+}
 
-    // by tagname
-    var elem = document.getElementsByTagName("div");
-    console.log(elem);
+function demoContent() {
+    const area = '.value3';
+    resetArea(area, "Output: Content");
+    writeLine(area, "Setting innerHTML to bold 'John Doe'...");
+    // Use an internal element to demo
+    writeLine(area, "<b>John Doe (Rendered)</b>");
+}
 
-    // or unified selector to get by class or id
-    var elem =  document.querySelector(".ht1"); // use . for class
-    console.log(elem);
+function demoNodes() {
+    const area = '.value4';
+    resetArea(area, "Output: Nodes");
+    var newDiv = document.createElement("div");
+    newDiv.innerText = "Dynamic Node for John Doe";
+    newDiv.style.color = "#ffeb3b";
+    document.querySelector(area).appendChild(newDiv);
+}
 
-    var elem = document.querySelector("#firsth"); // ise # for id
-    console.log(elem);
-
-    // innerHTML
-    elem.innerHTML = "<b>test InnerHTML</b>"; //can write html in
-    elem.innerText = "<b>test InnerHTML</b>";// deals with it as literal string.
-
-    // creating nodes - create new HTML elements
-    var newDiv = document.createElement("div"); // create new div element
-    newDiv.innerText = "I am a new div";        // add text content
-    newDiv.className = "new-class";             // add CSS class
-    document.body.appendChild(newDiv);          // add to end of body
-
-    // appendchild() - adds element as last child of parent
-    var parent = document.getElementById("firsth");
-    var child = document.createElement("p");
-    child.innerText = "New paragraph";
-    parent.appendChild(child);
-
-    // insertBefore() - adds element before specified child
-    var refChild = parent.firstChild;
-    var newChild = document.createElement("span");
-    newChild.innerText = "Inserted before";
-    parent.insertBefore(newChild, refChild);
-
-// dom collection accessing methods
-    // getElementsByName - get elements by name attribute
-    var items = document.getElementsByName("username");
-    console.log(items);
-
-    // children - get child elements only (not text nodes)
-    var children = parent.children;
-    console.log(children);
-
-    // firstChild / lastChild - get first/last child
-    console.log(parent.firstChild);
-    console.log(parent.lastChild);
-
-    // nextSibling / previousSibling - get adjacent siblings
-    console.log(elem.nextSibling);
-    console.log(elem.previousSibling);
-
-// form collection and elements collection calling inside each form
-    // forms collection - access all forms in page
-    var firstForm = document.forms[0];          // first form
-    var formByName = document.forms["myForm"];   // form by name
-    console.log(firstForm);
-
-    // elements collection - access form inputs
-    var input = firstForm.elements[0];              // first input
-    var inputByName = firstForm.elements.username;  // input by name
-    console.log(input.value);                        // get input value
-    input.value = "new value";                      // set input value
-
+function demoTraversal() {
+    const area = '.value5';
+    resetArea(area, "Output: Family");
+    var parent = document.getElementById("firsth").parentElement;
+    writeLine(area, "Parent of H1 is: " + parent.tagName);
+    writeLine(area, "First child of H1 is: " + document.getElementById("firsth").firstChild.nodeName);
+}

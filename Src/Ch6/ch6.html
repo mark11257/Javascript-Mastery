@@ -3,138 +3,98 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CH05: Error Handling - Mastery</title>
+    <title>CH06: Objects - Mastery</title>
     <link rel="stylesheet" href="../../LandingPage.css">
-    <script src="../../JsChapters/CH05_Error_Handling/ch5.js" defer></script>
+    <script src="../../JsChapters/CH06_Object/ch6.js" defer></script>
     <style>
-        body.ch5-theme { background: linear-gradient(135deg, #121212 0%, #2e1a1a 100%); }
+        body.ch6-theme { background: linear-gradient(135deg, #121212 0%, #1a2e1a 100%); }
         .demo-area h3 { color: #555; font-size: 0.9rem; margin: 0; text-transform: uppercase; letter-spacing: 1px; }
-        .btn-primary { background: #ff7597; color: #121212; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; margin-right: 10px; }
-        .btn-secondary { background: transparent; border: 2px solid #ff7597; color: #ff7597; padding: 10px 20px; cursor: pointer; }
+        .btn-primary { background: #4caf50; color: #121212; border: none; padding: 10px 20px; cursor: pointer; font-weight: bold; margin-right: 10px; }
+        .btn-secondary { background: transparent; border: 2px solid #4caf50; color: #4caf50; padding: 10px 20px; cursor: pointer; }
     </style>
 </head>
-<body class="ch5-theme">
+<body class="ch6-theme">
     <nav class="allchapterbutton">
         <a href="../LandingPage.html"> All Chapters</a>
     </nav>
     <nav>
-        <a href="../Ch4/ch4.html">← Previous Chapter</a>
+        <a href="../Ch5/ch5.html">← Previous Chapter</a>
     </nav>
     
     <main>
         <header class="container">
-            <h1 id="firsth">⚠️ CH05: Error Handling</h1>
-            <p class="name">Bulletproofing Your Code</p>
-            <p>Errors are inevitable. Whether it's a network failure or a user typing "banana" into a "number" field, your job is to <strong>catch</strong> these errors before they crash the entire application.</p>
+            <h1 id="firsth">CH06: Objects</h1>
+            <p class="name">Modeling Real-World Data</p>
+            <p>In JavaScript, an <strong>Object</strong> is a collection of related data and/or functionality. These usually consist of several variables and functions (which are called properties and methods when they are inside objects).</p>
         </header>
 
         <section class="chapter-section">
-            <h2>1. The Error Object & Throwing</h2>
-            <p>JavaScript has a built-in <code>Error</code> class. You can "throw" an error manually to stop execution when a specific condition isn't met.</p>
+            <h2>1. Object Creation</h2>
+            <p>You can create objects using the <strong>Constructor</strong> method (<code>new Object()</code>) or the much more common <strong>Literal</strong> method (<code>{}</code>).</p>
             <ul>
-                <li><strong>throw:</strong> Stops the script and sends a message to the console.</li>
-                <li><strong>Error Types:</strong> <code>RangeError</code> (number out of bounds), <code>ReferenceError</code> (variable doesn't exist), <code>TypeError</code> (wrong data type).</li>
-            </ul>
-            
-            <div class="form-row">
-                <button class="btn-primary" onclick="demoThrow()">Throw Custom Error</button>
-                <button class="btn-secondary" onclick="resetArea('.value1', 'Output: Errors')">Clear</button>
-            </div>
-            <div class="demo-area value1"><h3>Output: Errors</h3></div>
-
-            <p><strong>Copy & Try:</strong></p>
-            <div class="console-instruction">
-if (isNaN(x)) {<br>
-&nbsp;&nbsp;throw new TypeError("Value must be a number!");<br>
-}
-            </div>
-        </section>
-
-        <section class="chapter-section">
-            <h2>2. Try, Catch, & Finally</h2>
-            <p>This is the safety net. You <strong>try</strong> a block of code; if it fails, the <strong>catch</strong> block handles the mess, and <strong>finally</strong> runs no matter what (used for cleanup).</p>
-            
-            
-
-            <div class="form-row">
-                <button class="btn-primary" onclick="demoTryCatch()">Run Safety Test</button>
-                <button class="btn-secondary" onclick="resetArea('.value2', 'Output: Logic')">Clear</button>
-            </div>
-            <div class="demo-area value2"><h3>Output: Logic</h3></div>
-
-            <p><strong>Copy & Try:</strong></p>
-            <div class="console-instruction">
-try {<br>
-&nbsp;&nbsp;riskyFunction();<br>
-} catch (err) {<br>
-&nbsp;&nbsp;console.error("Caught: " + err.message);<br>
-} finally {<br>
-&nbsp;&nbsp;console.log("Cleanup complete.");<br>
-}
-            </div>
-        </section>
-
-        <section class="chapter-section">
-            <h2>3. Error Categorization (instanceof)</h2>
-            <p>Not all errors are equal. A <strong>RangeError</strong> (number too big) requires a different response than a <strong>ReferenceError</strong> (code is broken). We use <code>instanceof</code> to identify the "Species" of the error.</p>
-            
-            <ul>
-                <li><strong>ReferenceError:</strong> Thrown when you try to use a variable that hasn't been declared.</li>
-                <li><strong>TypeError:</strong> Thrown when a value is not the expected type (e.g., calling a string as a function).</li>
-                <li><strong>RangeError:</strong> Thrown when a number is outside its allowed range.</li>
+                <li><strong>Literal:</strong> Fast and easy to read.</li>
+                <li><strong>Constructor:</strong> Explicitly tells the engine to reserve space for an object.</li>
             </ul>
 
             
             
             <div class="form-row">
-                <button class="btn-primary" onclick="demoSpecificError()">Test Error Species</button>
-                <button class="btn-secondary" onclick="resetArea('.value3', 'Output: Types')">Clear</button>
+                <button class="btn-primary" onclick="demoCreation()">Create Objects</button>
+                <button class="btn-secondary" onclick="resetArea('.value1', 'Output: Creation')">Clear</button>
             </div>
-            <div class="demo-area value3"><h3>Output: Types</h3></div>
+            <div class="demo-area value1"><h3>Output: Creation</h3></div>
 
-            <p><strong>Copy & Try (The Dispatcher Pattern):</strong></p>
+            <p><strong>Copy & Try:</strong></p>
             <div class="console-instruction">
-try {<br>
-&nbsp;&nbsp;// Force a specific error type<br>
-&nbsp;&nbsp;null.f(); <br>
-} catch (e) {<br>
-&nbsp;&nbsp;if (e instanceof TypeError) console.log("Wrong Type!");<br>
-&nbsp;&nbsp;else if (e instanceof ReferenceError) console.log("Missing Var!");<br>
-}
+const car = { brand: "Tesla", model: "S" };<br>
+console.log(car.brand); // "Tesla"
             </div>
         </section>
 
         <section class="chapter-section">
-            <h2>4. Custom Error Classes</h2>
-            <p>For complex apps, the standard JS errors aren't enough. You can create your own <strong>Custom Error Classes</strong> that inherit from the base <code>Error</code>. This allows you to add custom properties like <code>errorCode</code> or <code>timestamp</code>.</p>
+            <h2>2. Methods & The 'this' Keyword</h2>
+            <p>When you store a function inside an object, it becomes a <strong>Method</strong>. To access other properties inside the same object, we use the <code>this</code> keyword.</p>
+            
+            
 
             <div class="form-row">
-                <button class="btn-primary" onclick="demoCustomError()">Run Custom Class</button>
-                <button class="btn-secondary" onclick="resetArea('.value4', 'Output: Custom')">Clear</button>
+                <button class="btn-primary" onclick="demoMethods()">Call Methods</button>
+                <button class="btn-secondary" onclick="resetArea('.value2', 'Output: Methods')">Clear</button>
             </div>
-            <div class="demo-area value4"><h3>Output: Custom</h3></div>
-            <p><strong>Copy & Try (Custom Validation Error):</strong></p>
+            <div class="demo-area value2"><h3>Output: Methods</h3></div>
+
+            <p><strong>Copy & Try:</strong></p>
+            <div class="console-instruction">
+const user = {<br>
+&nbsp;&nbsp;fname: "John Doe",<br>
+&nbsp;&nbsp;greet: function() { return "Hi, " + this.fname; }<br>
+};<br>
+console.log(user.greet());
+            </div>
+        </section>
+
+        <section class="chapter-section">
+            <h2>3. Iterating with For...In</h2>
+            <p>To look through every "Key" and "Value" inside an object, we use the <code>for...in</code> loop. This is different from the <code>for...of</code> loop used for arrays.</p>
+            
+            <div class="form-row">
+                <button class="btn-primary" onclick="demoIteration()">Loop Thru Object</button>
+                <button class="btn-secondary" onclick="resetArea('.value3', 'Output: Iteration')">Clear</button>
+            </div>
+            <div class="demo-area value3"><h3>Output: Iteration</h3></div>
+            <p><strong>Copy & Try (Dynamic Access):</strong></p>
     <div class="console-instruction">
-// 1. Define the custom class<br>
-class MyError extends Error {<br>
-&nbsp;&nbsp;constructor(message, code) {<br>
-&nbsp;&nbsp;&nbsp;&nbsp;super(message);<br>
-&nbsp;&nbsp;&nbsp;&nbsp;this.name = "DatabaseError";<br>
-&nbsp;&nbsp;&nbsp;&nbsp;this.code = code;<br>
-&nbsp;&nbsp;}<br>
-}<br><br>
-// 2. Use it in a try-catch<br>
-try {<br>
-&nbsp;&nbsp;throw new MyError("Connection Lost", 503);<br>
-} catch (e) {<br>
-&nbsp;&nbsp;console.error(`${e.name} (${e.code}): ${e.message}`);<br>
+const hero = { name: "John Doe", level: 10, class: "Software Engineer" };<br><br>
+for (let key in hero) {<br>
+&nbsp;&nbsp;// key = "name", "level", etc.<br>
+&nbsp;&nbsp;console.log(key + ": " + hero[key]);<br>
 }
         </section>
 
         <footer class="container" style="margin-top: 50px; border-top: 1px solid #333; padding-top: 20px;">
             <h3>Next Level: The Document Object Model</h3>
-            <p>Your logic is now safe from crashes. Now, let's make it interactive. In <strong>Chapter 6</strong>, we move to <strong>DOM Manipulation</strong>.</p>
-            <a href="../Ch6/ch6.html"><button class="btn-primary" type="button">Advance to Chapter 6</button></a>
+            <p>Now that you can model data with objects, let's learn how to grab HTML elements as objects! In <strong>Chapter 7</strong>, we move to <strong>DOM Manipulation</strong>.</p>
+            <a href="../Ch7/ch7.html"><button class="btn-primary" type="button">Advance to Chapter 7</button></a>
         </footer>
     </main>
 </body>

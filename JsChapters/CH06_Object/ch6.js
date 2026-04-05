@@ -1,41 +1,62 @@
-// object creation
-// by constructor
-var myobj = new Object();
-myobj.nameProp = 1; // you name the property and set it's value
-myobj.message = "This is a message from an object made by a constructor"
-console.log(myobj.message);
+// CH06: Objects - Logic synchronized with Explanation
+console.log('%c💎 CH6: Object Engine Online', 'color: #4caf50; font-weight: bold;');
 
-// literal creation
-var obj = {};
-//you also name the property and set it's value
-obj.userFirstName = "Mark";
-obj.userLastName = "Rafat";
-// you can store a function inside a function property
-obj.fullName = function(){
-    return `Function stored and called from within the object to display full name which is ${this.userFirstName} ${this.userLastName}`;
-};
- var res = obj.fullName();
- console.warn(res);
+function writeLine(selector, text, isWarn = false) {
+    const area = document.querySelector(selector);
+    const color = isWarn ? "#ffeb3b" : "#4caf50";
+    area.innerHTML += `<p style="color: ${color}; font-family: 'Courier New', monospace; margin: 8px 0;">>> ${text}</p>`;
+}
 
- // you can also deal with it like an associative array
- // by storing the property name as string in [] and assign it's value
- obj["status"] = "Ready";
- obj["role"] = "Developer";
- console.log(obj);
- // way to iterate the object
- for (const  key in obj){
-    console.log(key, obj[key]);
- }
+function resetArea(selector, title) {
+    document.querySelector(selector).innerHTML = `<h3>${title}</h3>`;
+}
 
- // most used way
- var customObj = {
-    username:"Mark",
-    role:"developer",
-    status:"ready",
-    info: function(){
-        return `${this.username} you are a ${this.role} and your status is ${this.status}`;
-    },
- };
+// 1. Creation Demo
+function demoCreation() {
+    const area = '.value1';
+    resetArea(area, "Output: Creation");
 
- var resyy = customObj.info();
- console.log(resyy);
+    // By Constructor
+    var myobj = new Object();
+    myobj.message = "Object made by Constructor (new Object())";
+    writeLine(area, myobj.message);
+
+    // By Literal (Most Common)
+    var literalObj = { info: "Object made by Literal ({})" };
+    writeLine(area, literalObj.info);
+}
+
+// 2. Methods Demo
+function demoMethods() {
+    const area = '.value2';
+    resetArea(area, "Output: Methods");
+
+    var user = {
+        firstName: "John ",
+        lastName: "Doe",
+        fullName: function() {
+            return `${this.firstName} ${this.lastName}`;
+        }
+    };
+
+    writeLine(area, "Accessing Property: " + user.firstName);
+    writeLine(area, "Calling Method: " + user.fullName(), true);
+}
+
+// 3. Iteration Demo
+function demoIteration() {
+    const area = '.value3';
+    resetArea(area, "Output: Iteration");
+
+    var customObj = {
+        username: "John Doe",
+        role: "Developer",
+        status: "Ready"
+    };
+
+    writeLine(area, "Starting for...in loop:");
+    for (const key in customObj) {
+        // We use bracket notation customObj[key] because 'key' is a string
+        writeLine(area, `${key.toUpperCase()}: ${customObj[key]}`);
+    }
+}
