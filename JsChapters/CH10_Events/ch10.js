@@ -39,9 +39,7 @@ function writeLog(selector, text, maxLogs = 0) {
 
 
 // --- 1. THE "THIS" KEYWORD ---
-=======
-// Example for the "this" keyword button
->>>>>>> Stashed changes
+
 const thisBtn = document.getElementById('thisBtn');
 thisBtn.addEventListener('click', function() {
     // We add the green class and remove the purple gradient background
