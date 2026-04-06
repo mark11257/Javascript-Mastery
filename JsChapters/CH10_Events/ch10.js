@@ -1,4 +1,13 @@
 // CH10: Event Logic Mastery
+/**
+ * LEARNING OBJECTIVES:
+ * 1. Understand 'this' context in event handlers.
+ * 2. Master Mouse and Keyboard event properties.
+ * 3. Control form behavior with preventDefault().
+ * 4. Master Event Propagation (Bubbling vs Capturing).
+ * 5. Create and dispatch Custom Events for decoupled logic.
+ */
+
 console.log('%c⚡ Event Engine: Online', 'color: #f44336; font-weight: bold;');
 
 // --- CORE UTILITY ---
@@ -10,7 +19,7 @@ function writeLog(selector, text, maxLogs = 0) {
 
     // Create the new log paragraph
     const p = document.createElement('p');
-    p.style.color = "#f44336";
+    p.className = "log-entry"; // Move styling to CSS for cleaner JS
     p.style.fontFamily = "monospace";
     p.style.margin = "4px 0";
     // Adding timestamp for clarity
@@ -21,15 +30,13 @@ function writeLog(selector, text, maxLogs = 0) {
     area.appendChild(p);
 
     // If maxLogs is specified, remove the oldest log (the first <p> element after the <h3>)
-    if (maxLogs > 0) {
-        const logs = area.querySelectorAll('p');
-        if (logs.length > maxLogs) {
-            logs[0].remove(); // Omits the first log from the top
-        }
+    const logs = area.querySelectorAll('p');
+    if (maxLogs > 0 && logs.length > maxLogs) {
+        logs[0].remove();
     }
+    area.scrollTop = area.scrollHeight; // Auto-scroll to latest log
 }
 
-<<<<<<< Updated upstream
 
 // --- 1. THE "THIS" KEYWORD ---
 =======
