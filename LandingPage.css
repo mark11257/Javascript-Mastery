@@ -150,57 +150,48 @@ main {
 }
 
 .console-instruction { 
-    background: #1a1126; 
-    color: #bb86fc; 
-    padding: 15px; 
-    border-radius: 8px; 
-    border-left: 4px solid var(--primary-purple);
-    font-family: monospace;
+  background: #1a1a1a; color: #0f0; padding: 15px; border-radius: 8px; 
+  font-family: monospace; border: 1px solid #444;
 }
 
-/* Chapter Step Cards */
-.demo-step { 
-    background: var(--card-gradient); 
-    padding: 25px; 
-    margin: 25px 0; 
-    border-left: 5px solid var(--primary-purple); 
-    border-radius: 12px; 
+nav a { 
+  background: linear-gradient(135deg, #03dac6, #00b8a9); color: white; 
+  padding: 12px 24px; text-decoration: none; border-radius: 8px; 
+  display: inline-block; margin-bottom: 20px;
 }
-.demo-step h4 { margin-top: 0; color: var(--primary-purple); }
-
-/* =========================================
-   5. INTERACTIVE ELEMENTS
-   ========================================= */
-button, .btn-primary {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    background: var(--accent-gradient);
-    color: white;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.3s;
+.allchapterbutton {
+  position:absolute;
+  right: 0;
 }
 
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(187, 134, 252, 0.4);
+.chapter-link { 
+  background: linear-gradient(135deg, #03dac6, #00b8a9) !important; 
+  color: white !important; padding: 12px 24px; 
+  text-decoration: none; border-radius: 8px; 
+  display: inline-block; font-weight: 500;
 }
 
-input, select {
-    padding: 12px;
-    border: 1px solid #443355;
-    border-radius: 8px;
-    background: #2a1b3d;
-    color: #e0e0e0;
-    outline: none;
-}
-input:focus { border-color: var(--primary-purple); }
 
-/* =========================================
-   6. RESPONSIVE
-   ========================================= */
-@media (max-width: 768px) {
-    .card { flex: 0 0 85%; }
-    .allchapterbutton { position: static; margin-bottom: 20px; }
+
+.output-area {
+  background: #1a1a1a; color: #0f0; padding: 20px; border-radius: 8px; 
+  font-family: monospace; border-left: 4px solid #03dac6; margin-top: 15px;
+  max-height: 200px; overflow-y: auto; white-space: pre-wrap;
 }
+
+/* Chapter Theme Overrides */
+.ch1-theme .demo-step { border-left-color: #03dac6; }
+.ch1-theme .demo-step h4 { color: #03dac6; }
+.ch1-theme nav a { background: linear-gradient(135deg, #03dac6, #00b8a9); }
+.ch1-theme .output-area { border-left-color: #03dac6; }
+
+.ch2-theme .demo-step { border-left-color: #03dac6; }
+.ch2-theme .demo-step h4 { color: #bb86fc; }
+.ch2-theme nav a { background: linear-gradient(135deg, #03dac6, #00b8a9); }
+.ch2-theme .output-area { border-left-color: #bb86fc; }
+
+.ch3-theme .demo-step { border-left-color: #f39c12; }
+.ch3-theme .demo-step h4 { color: #f39c12; }
+.ch3-theme nav a { background: linear-gradient(135deg, #03dac6, #00b8a9); }
+.ch3-theme .output-area { border-left-color: #f39c12; }
+
