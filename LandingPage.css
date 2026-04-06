@@ -1,14 +1,20 @@
 /* =========================================
-   1. GLOBAL PURPLE THEME & VARIABLES
+   1. GLOBAL THEME & VARIABLES
    ========================================= */
 :root {
+    /* Purples */
     --primary-purple: #bb86fc;
     --deep-purple: #6200ea;
     --dark-violet: #3700b3;
+    /* Teals (for Primary Actions) */
+    --primary-teal: #03dac6;
+    --dark-teal: #00b8a9;
+    /* Backgrounds & Gradients */
     --bg-dark: #121212;
     --bg-gradient: linear-gradient(135deg, #121212 0%, #1a102e 100%);
     --card-gradient: linear-gradient(135deg, #1e1e1e 0%, #2a1b3d 100%);
     --accent-gradient: linear-gradient(135deg, #bb86fc, #6200ea);
+    --teal-gradient: linear-gradient(135deg, #03dac6, #00b8a9);
 }
 
 * { box-sizing: border-box; }
@@ -29,27 +35,53 @@ main {
 }
 
 /* =========================================
-   2. CONTAINERS & NAVIGATION BUTTONS
+   2. CONTAINERS & LAYOUT (chapter-section added)
    ========================================= */
-.container, .hero-section {
-    background: linear-gradient(135deg, #1e1e1e 0%, #251a36 100%);
+.container, .hero-section, .chapter-section, footer {
+    background: var(--card-gradient);
     padding: 40px;
     border-radius: 16px;
     box-shadow: 0 12px 40px rgba(0,0,0,0.7);
     border: 1px solid #332244;
-    text-align: center;
     margin-bottom: 30px;
-    position: relative; /* For absolute positioned buttons */
+    position: relative;
 }
 
-/* Your "All Chapters" and "Previous" button styles */
-.allchapterbutton, .prev-chapter-btn {
+.hero-section {
+    text-align: center;
+    padding: 60px 40px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+.hero-section h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 20px;
+}
+
+.hero-section p {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+}
+
+/* =========================================
+   3. NAVIGATION 
+   ========================================= */
+.allchapterbutton {
     position: absolute;
     top: 20px;
     right: 20px;
+    z-index: 100;
 }
 
-.chapter-link, nav a { 
+nav { margin-bottom: 20px; }
+
+.chapter-link, nav a, .allchapterbutton a { 
     background: var(--accent-gradient) !important; 
     color: white !important; 
     padding: 10px 20px; 
@@ -57,11 +89,61 @@ main {
     border-radius: 8px; 
     display: inline-block; 
     font-weight: 500;
+    font-size: 0.9rem;
     transition: 0.3s;
 }
 
+nav a:hover, .allchapterbutton a:hover { 
+    opacity: 0.9; 
+    letter-spacing: 0.5px; 
+}
+
 /* =========================================
-   3. CAROUSEL SYSTEM
+   4. BUTTONS (Consolidated & Cleaned)
+   ========================================= */
+/* Main Action Buttons (Teal) */
+.btn-primary, footer .btn-primary {
+    background: var(--teal-gradient) !important;
+    color: #121212 !important; 
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(3, 218, 198, 0.2);
+    text-align: center;
+    font-size: 1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Outline / Clear Buttons (Purple) */
+.btn-secondary {
+    background: transparent !important;
+    color: var(--primary-purple) !important;
+    border: 2px solid var(--primary-purple) !important;
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(187, 134, 252, 0.1) !important;
+    border-color: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* =========================================
+   5. CAROUSEL SYSTEM (Dashboard)
    ========================================= */
 .carousel-wrapper {
     position: relative;
@@ -79,6 +161,7 @@ main {
     padding: 30px 0;
     scrollbar-width: none;
 }
+
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .card {
@@ -101,6 +184,19 @@ main {
     box-shadow: 0 15px 45px rgba(187, 134, 252, 0.2);
 }
 
+.card-header {
+    background: var(--primary-purple);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.card h3 { color: #e0e0e0; margin: 0 0 15px 0; font-size: 1.4rem; }
+
 /* Carousel Arrows */
 .nav-btn {
     position: absolute;
@@ -119,26 +215,50 @@ main {
     align-items: center;
     justify-content: center;
 }
+
 .nav-btn:hover { background: var(--primary-purple); color: #121212; }
 .prev-btn { left: 0; }
 .next-btn { right: 0; }
 
 /* =========================================
-   4. CODE AREA & DEMO STYLING (The "Missing" CSS)
+   6. CODE AREAS & DEMO ELEMENTS
    ========================================= */
+/* Added demo-step */
+.demo-step {
+    background: #151515;
+    border-left: 4px solid var(--primary-teal);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.demo-step h4 { margin-top: 0; color: var(--primary-teal); }
+
 .demo-area, .output-area {
     min-height: 120px;
     background: #0a0a0a;
-    border: 2px dashed #443355; /* Dashed look you liked */
+    border: 2px dashed #443355; 
     border-radius: 8px;
     padding: 20px;
     margin-top: 15px;
     font-family: 'Consolas', monospace;
     color: #f8f8f2;
     border-left: 5px solid var(--primary-purple);
+    max-height: 250px; 
+    overflow-y: auto; 
+    white-space: pre-wrap;
 }
 
-/* Loop elements from your code */
+.console-instruction { 
+    background: #1a1a1a; 
+    color: var(--primary-teal); 
+    padding: 15px; 
+    border-radius: 8px; 
+    font-family: 'Consolas', monospace; 
+    border: 1px solid #444;
+}
+
 .loop, .loop1, .loop2 { 
     font-size: 1.2rem; 
     font-family: monospace; 
@@ -149,49 +269,16 @@ main {
     border: 1px solid rgba(187, 134, 252, 0.3);
 }
 
-.console-instruction { 
-  background: #1a1a1a; color: #0f0; padding: 15px; border-radius: 8px; 
-  font-family: monospace; border: 1px solid #444;
-}
-
-nav a { 
-  background: linear-gradient(135deg, #03dac6, #00b8a9); color: white; 
-  padding: 12px 24px; text-decoration: none; border-radius: 8px; 
-  display: inline-block; margin-bottom: 20px;
-}
-.allchapterbutton {
-  position:absolute;
-  right: 0;
-}
-
-.chapter-link { 
-  background: linear-gradient(135deg, #03dac6, #00b8a9) !important; 
-  color: white !important; padding: 12px 24px; 
-  text-decoration: none; border-radius: 8px; 
-  display: inline-block; font-weight: 500;
-}
-
-
-
-.output-area {
-  background: #1a1a1a; color: #0f0; padding: 20px; border-radius: 8px; 
-  font-family: monospace; border-left: 4px solid #03dac6; margin-top: 15px;
-  max-height: 200px; overflow-y: auto; white-space: pre-wrap;
-}
-
 /* Chapter Theme Overrides */
-.ch1-theme .demo-step { border-left-color: #03dac6; }
-.ch1-theme .demo-step h4 { color: #03dac6; }
-.ch1-theme nav a { background: linear-gradient(135deg, #03dac6, #00b8a9); }
-.ch1-theme .output-area { border-left-color: #03dac6; }
-
-.ch2-theme .demo-step { border-left-color: #03dac6; }
-.ch2-theme .demo-step h4 { color: #bb86fc; }
-.ch2-theme nav a { background: linear-gradient(135deg, #03dac6, #00b8a9); }
-.ch2-theme .output-area { border-left-color: #bb86fc; }
-
+.ch1-theme .demo-step { border-left-color: var(--primary-teal); }
+.ch2-theme .demo-step { border-left-color: var(--primary-purple); }
 .ch3-theme .demo-step { border-left-color: #f39c12; }
-.ch3-theme .demo-step h4 { color: #f39c12; }
-.ch3-theme nav a { background: linear-gradient(135deg, #03dac6, #00b8a9); }
-.ch3-theme .output-area { border-left-color: #f39c12; }
 
+/* =========================================
+   7. RESPONSIVE QUERIES
+   ========================================= */
+@media (max-width: 768px) {
+    .carousel-wrapper { padding: 0 30px; }
+    .card { flex: 0 0 280px; }
+    .hero-section { padding: 40px 20px; }
+}

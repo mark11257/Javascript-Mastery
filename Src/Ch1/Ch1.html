@@ -24,7 +24,7 @@
             <p>This is the "lazy" method. You’re shoving logic directly into <strong>HTML Attributes</strong>. It’s tightly coupled, meaning if you want to change a function name later, you’ll be hunting through 500 lines of HTML like a madman. It's fine for a quick "Hello World," but don't bring this into a production environment unless you want your team to hate you.</p>
             
             <div class="demo-step">
-                <button onclick="alert('Inline execution: Fast, but technically ugly.')">Execute Inline</button>
+                <button class="btn-primary" onclick="alert('Inline execution: Fast, but technically ugly.')">Execute Inline</button>
             </div>
 
             <p><strong>The Implementation:</strong></p>
@@ -42,7 +42,7 @@
             <div class="demo-step">
                 <div class="demo-area">
                     <p>System State: <span id="room-status" class="loop">IDLE</span></p>
-                    <button id="light-switch" class="ht1">Trigger Listener</button>
+                    <button class="btn-primary" id="light-switch" class="ht1">Trigger Listener</button>
                 </div>
             </div>
 
@@ -89,7 +89,7 @@ console.dir(document);          // Dig into the actual Object properties
             <h3>Next Level: Data Persistence</h3>
             <p>Triggering clicks is cool, but meaningless if you can't save data. In <strong>Chapter 2</strong>, we'll look at <strong>Variables</strong> and <strong>Data Types</strong>—basically, how to give your code a memory.</p>
             <a href="../Ch2/ch2.html">
-                <button type="button">Chapter 2</button>
+                <button class="btn-primary" type="button">Chapter 2</button>
             </a>
 
         </footer>
