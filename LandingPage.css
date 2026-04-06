@@ -183,6 +183,7 @@ nav a {
 }
 
 
+<<<<<<< Updated upstream
 
 .output-area {
   background: #1a1a1a; color: #0f0; padding: 20px; border-radius: 8px; 
@@ -206,3 +207,336 @@ nav a {
 .ch3-theme nav a { background: linear-gradient(135deg, #03dac6, #00b8a9); }
 .ch3-theme .output-area { border-left-color: #f39c12; }
 
+=======
+/* =========================================
+   6. RESPONSIVE
+   ========================================= */
+@media (max-width: 768px) {
+    .card { flex: 0 0 85%; }
+    .allchapterbutton { position: static; margin-bottom: 20px; }
+}
+
+/* Chapter 9 Specific - Purple Theme Integration */
+
+/* 1. Theme Overrides - Matching Master Purple */
+body.ch9-theme { 
+    background: var(--bg-gradient); 
+    color: #e0e0e0; 
+}
+
+.demo-area h3 { 
+    color: var(--primary-purple); 
+    font-size: 0.8rem; 
+    margin: 0 0 10px 0; 
+    text-transform: uppercase; 
+    letter-spacing: 1px;
+}
+
+/* 2. Secondary Button (Outlined Purple) */
+.btn-secondary { 
+    background: transparent; 
+    border: 2px solid var(--primary-purple); 
+    color: var(--primary-purple); 
+    padding: 10px 20px; 
+    cursor: pointer; 
+    border-radius: 8px; 
+    font-weight: 600;
+    transition: 0.3s;
+}
+.btn-secondary:hover { 
+    background: rgba(187, 134, 252, 0.1); 
+    box-shadow: 0 0 15px rgba(187, 134, 252, 0.2);
+}
+
+/* 3. Form & Cookie Management Styling */
+.cookie-form { 
+    background: #1e1e1e; 
+    padding: 25px; 
+    border-radius: 12px; 
+    margin: 20px 0; 
+    border: 1px solid #332244; 
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label { 
+    display: block; 
+    margin-bottom: 8px; 
+    font-weight: bold; 
+    color: var(--primary-purple); 
+}
+
+.form-group input[type="text"], 
+.form-group input[type="password"] { 
+    width: 100%; 
+    padding: 12px; 
+    background: #0a0a0a; 
+    border: 1px solid #443355; 
+    color: white; 
+    border-radius: 8px; 
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--primary-purple);
+    outline: none;
+}
+
+/* 4. Gender/Radio Selection */
+.gender-container { 
+    display: flex; 
+    gap: 20px; 
+    align-items: center; 
+    margin-top: 10px; 
+    padding: 10px;
+}
+
+.gender-option { 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    cursor: pointer; 
+    color: #b0b0b0;
+}
+
+.gender-option input { 
+    cursor: pointer; 
+    accent-color: var(--primary-purple); 
+    width: 20px; 
+    height: 20px; 
+}
+
+/* 5. Data Tables (Cookie Display) */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 20px 0; 
+    background: #151515; 
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td { 
+    border: 1px solid #332244; 
+    padding: 15px; 
+    text-align: left; 
+}
+
+th { 
+    background: #1a1126;
+    color: var(--primary-purple); 
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+td { color: #d4d4d4; }
+
+/* 6. Console Instruction Overrides */
+.console-instruction { 
+    background: #000; 
+    border-left: 4px solid var(--primary-purple); 
+    padding: 15px; 
+    font-family: 'Consolas', monospace; 
+    color: #bb86fc; 
+}
+
+/* Chapter 10 Specific - Purple Theme Integration */
+
+/* 1. Theme Overrides - Keeping the Master Glow */
+body.ch10-theme { 
+    background: var(--bg-gradient); 
+    color: #e0e0e0; 
+}
+
+/* Redefining the demo area to match the master console look */
+.demo-area { 
+    background: #0a0a0a; 
+    border: 1px solid #332244; 
+    border-radius: 8px; 
+    padding: 15px; 
+    margin-top: 15px; 
+    min-height: 60px; 
+    border-left: 4px solid var(--primary-purple);
+}
+
+.demo-area h3 { 
+    color: var(--primary-purple); 
+    font-size: 0.8rem; 
+    margin: 0 0 10px 0; 
+    text-transform: uppercase; 
+    border-bottom: 1px solid #2a1b3d; 
+    padding-bottom: 8px; 
+    letter-spacing: 1px;
+}
+
+/* 2. Interactive Event Elements */
+.event-box { 
+    border: 2px dashed var(--primary-purple); 
+    padding: 40px; 
+    text-align: center; 
+    margin: 25px 0; 
+    cursor: crosshair; 
+    transition: all 0.3s ease; 
+    font-size: 1.2rem; 
+    background: rgba(187, 134, 252, 0.05);
+    border-radius: 12px;
+}
+
+.event-box:hover {
+    background: rgba(187, 134, 252, 0.1);
+    box-shadow: inset 0 0 20px rgba(187, 134, 252, 0.1);
+}
+
+.input-style { 
+    width: 100%; 
+    padding: 12px; 
+    background: #1a1126; 
+    border: 1px solid #443355; 
+    color: white; 
+    border-radius: 8px; 
+    margin-bottom: 15px; 
+    transition: 0.3s;
+}
+
+.input-style:focus { 
+    border-color: var(--primary-purple); 
+    outline: none; 
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.3);
+}
+
+/* 3. Event Propagation (Bubbling) Demo */
+.bubble-parent { 
+    background: #1e1e1e; 
+    padding: 50px; 
+    border: 2px solid #332244; 
+    text-align: center; 
+    border-radius: 12px; 
+    cursor: pointer; 
+    transition: background 0.3s;
+}
+.bubble-parent:hover { background: #251a36; }
+
+.bubble-child { 
+    background: var(--accent-gradient); 
+    padding: 20px 40px; 
+    color: white; 
+    font-weight: bold; 
+    border: none; 
+    border-radius: 8px; 
+    cursor: pointer; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+/* 4. Slideshow Logic Styling */
+.slide-container { 
+    text-align: center; 
+    background: #151515; 
+    padding: 25px; 
+    border-radius: 12px; 
+    border: 1px solid #332244; 
+}
+
+.slide-display { 
+    width: 100%; 
+    height: 220px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 2.2rem; 
+    font-weight: bold; 
+    border-radius: 10px; 
+    transition: all 0.5s ease; 
+    margin-bottom: 20px; 
+    background: var(--accent-gradient); 
+    color: white; 
+    text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+/* 5. Tables & Consoles */
+table { 
+    width: 100%; 
+    border-collapse: collapse; 
+    margin: 20px 0; 
+    background: #0a0a0a; 
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td { border: 1px solid #332244; padding: 15px; text-align: left; }
+th { background: #1a1126; color: var(--primary-purple); }
+
+.console-instruction { 
+    background: #000; 
+    border-left: 4px solid var(--primary-purple); 
+    padding: 15px; 
+    font-family: 'Consolas', monospace; 
+    color: #bb86fc; 
+    margin: 15px 0; 
+}
+/* --- Fix for "This" Keyword Button --- */
+/* This ensures the button stays purple initially but allows the JS to turn it green */
+#thisButton {
+    background: var(--accent-gradient);
+    transition: background 0.3s ease;
+}
+/* This class will be used by your JS to override the purple when clicked */
+.bg-success-green {
+    background: #4caf50 !important; /* Material Green */
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4) !important;
+}
+
+/* --- Fix for Slideshow Colors --- */
+/* Giving each slide a distinct, professional deep-tone color */
+.slide-1 { background: linear-gradient(135deg, #6200ea, #3700b3) !important; }
+.slide-2 { background: linear-gradient(135deg, #00acc1, #007c91) !important; }
+.slide-3 { background: linear-gradient(135deg, #d81b60, #ad1457) !important; }
+.slide-4 { background: linear-gradient(135deg, #43a047, #2e7d32) !important; }
+
+/* --- Fix for Output Area Text Styling --- */
+.output-area, .demo-area {
+    color: #f8f8f2; /* Off-white for readability */
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* Syntax highlighting colors for the "Code to Try" sections */
+.code-keyword { color: #bb86fc; font-weight: bold; }
+.code-string { color: #03dac6; }
+.code-comment { color: #666; font-style: italic; }
+.code-function { color: #00bcd4; }
+
+/* --- Missing Log & Text CSS --- */
+.log-entry {
+    color: #03dac6; /* Neon Teal for the timestamp */
+    font-size: 0.9rem;
+    border-bottom: 1px solid #1a1126;
+    padding: 4px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-5px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Success state for the 'this' button */
+.bg-success-green {
+    background: #4caf50 !important;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.4) !important;
+    border: none !important;
+}
+
+/* Slideshow colors (matching the JS array below) */
+.slide-display {
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+/* Ensure the live output area text is readable */
+.demo-area p {
+    color: #e0e0e0;
+    margin-left: 10px;
+}
+>>>>>>> Stashed changes

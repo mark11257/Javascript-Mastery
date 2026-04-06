@@ -29,13 +29,17 @@ function writeLog(selector, text, maxLogs = 0) {
     }
 }
 
+<<<<<<< Updated upstream
 
 // --- 1. THE "THIS" KEYWORD ---
+=======
+// Example for the "this" keyword button
+>>>>>>> Stashed changes
 const thisBtn = document.getElementById('thisBtn');
 thisBtn.addEventListener('click', function() {
-    // 'this' targets the button directly without needing to select it again
-    this.style.backgroundColor = this.style.backgroundColor === 'green' ? '#f44336' : 'green';
-    this.innerText = "Look! My color changed.";
+    // We add the green class and remove the purple gradient background
+    this.classList.toggle('bg-success-green');
+    this.textContent = "Look! My color changed.";
 });
 
 
@@ -62,19 +66,18 @@ document.getElementById('prevBtn').addEventListener('click', function() {
     slideDisplay.style.backgroundColor = slides[currentSlide].color;
 });
 
-// Interactive Mouse Box
+// --- UPDATED MOUSE BOX LOGIC ---
 const hoverBox = document.getElementById('hoverBox');
 hoverBox.addEventListener('mouseover', function() {
-    this.style.borderColor = 'white';
+    this.style.borderColor = '#bb86fc'; // Purple glow on hover
+    this.style.background = 'rgba(187, 134, 252, 0.1)';
     writeLog('.valueMouse', `Mouse ENTERED the box.`);
 });
+
 hoverBox.addEventListener('mouseout', function() {
-    this.style.borderColor = '#f44336';
+    this.style.borderColor = '#332244'; // Return to dark purple border
+    this.style.background = 'transparent';
     writeLog('.valueMouse', `Mouse LEFT the box.`);
-});
-hoverBox.addEventListener('click', function(e) {
-    // Extracting Event Properties
-    writeLog('.valueMouse', `Box Clicked! Event Type: ${e.type} | X: ${e.clientX}, Y: ${e.clientY}`);
 });
 
 
