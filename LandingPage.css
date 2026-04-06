@@ -317,9 +317,11 @@ nav a:hover, .allchapterbutton a:hover {
         table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #1a1a1a; }
         th, td { border: 1px solid #333; padding: 12px; text-align: left; }
         th { color: #f44336; }
-        .thisBtn-active {
-    background: #28a745 !important; /* A solid Green */
+        
+      .bg-success-green {
+    background: #28a745 !important; /* Solid Green */
     color: white !important;
     box-shadow: 0 0 15px rgba(40, 167, 69, 0.6);
     border: none;
+
 }
