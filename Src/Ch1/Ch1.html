@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CH01: JS Integration - Mastery</title>
     <script src="../../JsChapters/CH01_Introduction/ch1.js" defer></script>
-    <link rel="stylesheet" href="../../LandingPage.css">
+    <link rel="stylesheet" href="../../Css/main.css">
+    <link rel="stylesheet" href="../../Css/chapters.css">
 </head>
 <body class="ch1-theme">
     <nav>
@@ -28,44 +29,40 @@
             </div>
 
             <p><strong>The Implementation:</strong></p>
-            <div class="console-instruction">
+            <pre class="console-instruction">
 /* The browser reads the 'onclick' attribute and executes 
    the string as raw JS. Zero separation of concerns. */
-&lt;button onclick="alert('Logged')"&gt;Execute&lt;/button&gt;
-            </div>
+&lt;button onclick="alert('Logged')"&gt;Execute&lt;/button&gt;</pre>
         </section>
 
         <section class="chapter-section general-tests">
             <h2>2. Decoupled JS (Event Listeners)</h2>
             <p>This is the industry standard. We keep the <strong>Logic</strong> in a <code>.js</code> file and the <strong>Structure</strong> in the <code>.html</code> file. We "grab" an element by its <strong>ID</strong> and attach an <strong>Event Listener</strong>. It’s like setting a trap: the code just sits there silently until the user triggers the event (like a click).</p>
-            
-            <div class="demo-step">
                 <div class="demo-area status-card">
                     <p>System State: <span id="room-status" class="status-badge">IDLE</span></p>
                     <button class="btn-primary" id="light-switch" class="ht1">Trigger Listener</button>
-                </div>
+                
             </div>
 
             
 
             <p><strong>Step 1: The Target (HTML)</strong></p>
-            <div class="console-instruction">
+            <pre class="console-instruction">
 &lt;!-- The ID is the 'hook' that allows JS to find this specific node --&gt;
-&lt;button id="light-switch"&gt;Trigger&lt;/button&gt;
-            </div>
+&lt;button id="light-switch"&gt;Trigger&lt;/button&gt;</pre>
 
             <p><strong>Step 2: The Logic (JS)</strong></p>
-            <div class="console-instruction">
+            <pre class="console-instruction">
 /* 1. Locate the Object in the DOM tree
    2. Attach a Listener for the 'click' event
-   3. Fire the Callback function when the event happens */
-
+   3. Fire the Callback function when the event happens
+*/
 const targetBtn = document.getElementById('light-switch');
 
 targetBtn.addEventListener('click', function() {
     document.getElementById('room-status').innerText = "ACTIVE";
 });
-            </div>
+</pre>
         </section>
 
         <section class="chapter-section">
@@ -77,12 +74,12 @@ targetBtn.addEventListener('click', function() {
             </div>
 
             <p><strong>Common Debugging Methods:</strong></p>
-            <div class="console-instruction">
+            <pre class="console-instruction">
 console.log("Standard log");    // For general 'I am here' checks
 console.warn("Soft warning");   // 'This is weird but won't crash... yet'
 console.error("Hard error");    // Use this when the world is ending
 console.dir(document);          // Dig into the actual Object properties
-            </div>
+            </pre>
         </section>
 
         <footer class="container" style="margin-top: 50px;">

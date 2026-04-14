@@ -1,0 +1,55 @@
+
+
+/* Chapter Theme Overrides */
+.ch1-theme .demo-step { border-left-color: var(--primary-teal); }
+.ch2-theme .demo-step { border-left-color: var(--primary-purple); }
+.ch3-theme .demo-step { border-left-color: #f39c12; }
+
+/* Status Demo Card */
+.status-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 30px !important;
+    background: #0d0d0d !important;
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 5px 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: rgba(187, 134, 252, 0.1);
+}
+
+/* Green state for the "Success" or "Active" labels */
+.status-active {
+    color: var(--primary-teal);
+    border: 1px solid var(--primary-teal);
+    box-shadow: 0 0 10px rgba(3, 218, 198, 0.2);
+}
+
+/*Footer */
+
+footer.container {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid #332244;
+    padding-bottom: 60px;
+}
+
+footer h3 {
+    color: var(--primary-purple);
+    margin-bottom: 15px;
+}
+
+/* Ensure images within chapter sections don't overflow */
+.chapter-section img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid #332244;
+}
+
