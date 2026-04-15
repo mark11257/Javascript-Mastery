@@ -84,34 +84,24 @@
 
     /* 5. Dashboard Carousel Fix */
     .carousel-wrapper {
-        padding: 0 40px !important; /* Space for the arrows */
-        max-width: 100vw;
-        overflow: hidden; /* Clips any "leftover" cards */
+        padding: 0 30px !important; /* Reduced padding allows cards to stretch wider */
+        max-width: 100vw; 
     }
 
-    .carousel-track {
-        gap: 10px !important; /* Smaller gap for mobile */
-    }
+ 
 
     .card {
-        /* FORCE exactly one card width */
-        flex: 0 0 100% !important; 
-        min-width: 100% !important; 
-        
-        /* FIX the "elongated" look */
-        min-height: 0 !important; /* Removes the desktop 280px minimum */
-        height: auto !important;   /* Let it wrap the text naturally */
-        margin: 0 !important;
-        padding: 15px !important;
+       
     }
-
-    .card h3 { font-size: 1.1rem; }
-    .card p { font-size: 0.85rem; }
+    
+    /* Move arrows to the absolute edge to maximize screen width */
+    .prev-btn { left: 0px !important; }
+    .next-btn { right: 0px !important; }
     
     .nav-btn {
-        width: 40px;
-        height: 40px;
-        opacity: 0.8; /* Subtle look on mobile */
+        width: 32px !important;
+        height: 32px !important;
+        opacity: 0.8; 
     }
     /* --- TABLE STYLING (Chapter 9) --- */
 table {

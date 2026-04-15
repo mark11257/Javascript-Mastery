@@ -23,7 +23,7 @@
     position: relative;
     max-width: 900px; /* Increased slightly for better 2-card fit */
     margin: 40px auto;
-    padding: 0 60px; /* Space for the absolute arrows */
+    padding: 0 26px; /* Space for the absolute arrows */
     overflow: hidden; /* This hides the 'leftovers' */
 }
 
@@ -46,7 +46,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 280px; /* Desktop height */
+    min-height: 250px; /* Desktop height */
+    min-width: 300px; /* Desktop width */
     box-sizing: border-box;
 }
 

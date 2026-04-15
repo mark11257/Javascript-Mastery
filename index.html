@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Mastery - Dashboard</title>
 <link rel="stylesheet" href="Css/main.css">
-<link rel="stylesheet" href="Css/dashboard.css">
+<link rel="stylesheet" href="Css/dashboard.css">                        
+<link rel="stylesheet" href="Css/responsive.css">                        
 </head>
 <body>
 
@@ -135,7 +136,7 @@
     </main>
 
     <script>
-        // Carousel Scroll Logic
+// Carousel Scroll Logic
 const track = document.getElementById('track');
 const slideLeft = document.getElementById('slideLeft');
 const slideRight = document.getElementById('slideRight');
@@ -144,20 +145,21 @@ const cards = document.querySelectorAll('.card');
 let currentIndex = 0;
 
 function updateCarousel() {
-    const gap = 20;
-    // Using getBoundingClientRect for sub-pixel accuracy
-    const cardWidth = cards[0].getBoundingClientRect().width;
-    const moveAmount = currentIndex * (cardWidth + gap);
+    // THE BULLETPROOF WORKAROUND:
+    // Instead of hardcoding math, we measure the physical distance between 
+    // the start of Card 1 and the start of Card 2. 
+    // This perfectly captures whatever width and gap your custom CSS is using!
+    const stepSize = cards[1].offsetLeft - cards[0].offsetLeft;
+    
+    const moveAmount = currentIndex * stepSize;
     track.style.transform = `translateX(-${moveAmount}px)`;
 }
 
 slideRight.addEventListener('click', () => {
-    const cardsToShow = window.innerWidth <= 480 ? 1 : 2;
+    const step = window.innerWidth <= 480 ? 1 : 2;
     
-    // Logic: If we can move forward a full step, do it. 
-    // Otherwise, go back to the very beginning.
-    if (currentIndex + cardsToShow < cards.length) {
-        currentIndex += cardsToShow;
+    if (currentIndex + step < cards.length) {
+        currentIndex += step;
     } else {
         currentIndex = 0; 
     }
@@ -165,20 +167,18 @@ slideRight.addEventListener('click', () => {
 });
 
 slideLeft.addEventListener('click', () => {
-    const cardsToShow = window.innerWidth <= 480 ? 1 : 2;
+    const step = window.innerWidth <= 480 ? 1 : 2;
 
-    // Logic: If we are at the start, jump to the last possible "page"
-    if (currentIndex - cardsToShow >= 0) {
-        currentIndex -= cardsToShow;
+    if (currentIndex - step >= 0) {
+        currentIndex -= step;
     } else {
-        // Find the last index that starts a full page
-        currentIndex = Math.floor((cards.length - 1) / cardsToShow) * cardsToShow;
+        currentIndex = Math.floor((cards.length - 1) / step) * step;
     }
     updateCarousel();
 });
 
 window.addEventListener('resize', () => {
-    currentIndex = 0; // Reset to start on resize to prevent alignment breaks
+    currentIndex = 0; 
     updateCarousel();
 });
     </script>
