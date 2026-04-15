@@ -21,24 +21,24 @@
 /* CAROUSEL SYSTEM */
 .carousel-wrapper {
     position: relative;
-    max-width: 1100px;
+    max-width: 900px; /* Increased slightly for better 2-card fit */
     margin: 40px auto;
-    padding: 0 50px;
+    padding: 0 60px; /* Space for the absolute arrows */
+    overflow: hidden; /* This hides the 'leftovers' */
 }
 
 .carousel-track {
     display: flex;
     gap: 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    padding: 30px 0;
-    scrollbar-width: none;
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    padding: 20px 0;
 }
 
 .carousel-track::-webkit-scrollbar { display: none; }
 
 .card {
-    flex: 0 0 320px;
+    /* MATH: (100% of container - 20px gap) / 2 cards */
+    flex: 0 0 calc(50% - 10px); 
     background: #1e1e1e;
     border: 1px solid #332244;
     border-radius: 16px;
@@ -46,8 +46,8 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    transition: all 0.3s ease;
-    border-left: 5px solid var(--primary-purple);
+    min-height: 280px; /* Desktop height */
+    box-sizing: border-box;
 }
 
 .card:hover {
@@ -69,20 +69,19 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: #2a1b3d;
-    color: var(--primary-purple);
-    border: 1px solid var(--primary-purple);
-    border-radius: 50%;
+    z-index: 10;
+    background: var(--accent-gradient);
+    border: none;
     width: 45px;
     height: 45px;
+    border-radius: 50%;
+    color: white;
     cursor: pointer;
-    z-index: 10;
-    transition: 0.3s;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
 .nav-btn:hover { background: var(--primary-purple); color: #121212; }
-.prev-btn { left: 0; }
-.next-btn { right: 0; }
+.prev-btn { left: 5px; }
+.next-btn { right: 5px; }

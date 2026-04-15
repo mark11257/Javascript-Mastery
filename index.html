@@ -136,20 +136,51 @@
 
     <script>
         // Carousel Scroll Logic
-        const track = document.getElementById('track');
-        const slideLeft = document.getElementById('slideLeft');
-        const slideRight = document.getElementById('slideRight');
+const track = document.getElementById('track');
+const slideLeft = document.getElementById('slideLeft');
+const slideRight = document.getElementById('slideRight');
+const cards = document.querySelectorAll('.card');
 
-        // Scroll amount is roughly the width of one card + gap
-        const scrollAmount = 320; 
+let currentIndex = 0;
 
-        slideLeft.addEventListener('click', () => {
-            track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-        });
+function updateCarousel() {
+    const gap = 20;
+    // Using getBoundingClientRect for sub-pixel accuracy
+    const cardWidth = cards[0].getBoundingClientRect().width;
+    const moveAmount = currentIndex * (cardWidth + gap);
+    track.style.transform = `translateX(-${moveAmount}px)`;
+}
 
-        slideRight.addEventListener('click', () => {
-            track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-        });
+slideRight.addEventListener('click', () => {
+    const cardsToShow = window.innerWidth <= 480 ? 1 : 2;
+    
+    // Logic: If we can move forward a full step, do it. 
+    // Otherwise, go back to the very beginning.
+    if (currentIndex + cardsToShow < cards.length) {
+        currentIndex += cardsToShow;
+    } else {
+        currentIndex = 0; 
+    }
+    updateCarousel();
+});
+
+slideLeft.addEventListener('click', () => {
+    const cardsToShow = window.innerWidth <= 480 ? 1 : 2;
+
+    // Logic: If we are at the start, jump to the last possible "page"
+    if (currentIndex - cardsToShow >= 0) {
+        currentIndex -= cardsToShow;
+    } else {
+        // Find the last index that starts a full page
+        currentIndex = Math.floor((cards.length - 1) / cardsToShow) * cardsToShow;
+    }
+    updateCarousel();
+});
+
+window.addEventListener('resize', () => {
+    currentIndex = 0; // Reset to start on resize to prevent alignment breaks
+    updateCarousel();
+});
     </script>
 </body>
 </html>
