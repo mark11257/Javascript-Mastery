@@ -1,0 +1,190 @@
+/* =========================================
+   1. GLOBAL THEME & VARIABLES
+   ========================================= */
+:root {
+    /* Purples */
+    --primary-purple: #bb86fc;
+    --deep-purple: #6200ea;
+    --dark-violet: #3700b3;
+    /* Teals */
+    --primary-teal: #03dac6;
+    --dark-teal: #00b8a9;
+    /* Backgrounds & Gradients */
+    --bg-dark: #121212;
+    --bg-gradient: linear-gradient(135deg, #121212 0%, #1a102e 100%);
+    --card-gradient: linear-gradient(135deg, #1e1e1e 0%, #2a1b3d 100%);
+    --accent-gradient: linear-gradient(135deg, #bb86fc, #6200ea);
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-gradient);
+    color: #e0e0e0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Global Navigation Styles */
+
+nav { margin-top: 20px; }
+
+.allchapterbutton {
+    position:absolute;
+    margin-top: 0px;
+    right: 20px;
+    z-index: 100;
+    
+}
+
+.chapter-link, nav a, .allchapterbutton a { 
+    background: var(--accent-gradient) !important; 
+    color: white !important; 
+    padding: 10px 20px; 
+    text-decoration: none; 
+    border-radius: 8px; 
+    display: inline-block; 
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.allchapterbutton a:hover{ 
+    opacity: 0.9; 
+    letter-spacing: 0.5px; 
+}
+.nav a:hover { 
+    opacity: 0.9; 
+    letter-spacing: 0.5px; 
+}
+
+
+.btn-primary, footer .btn-primary, .btn-secondary {
+    background: var(--primary-purple) !important;
+    color: #121212 !important; 
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(3, 218, 198, 0.2);
+    text-align: center;
+    font-size: 1rem;
+      cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Outline / Clear Buttons (Purple) */
+.btn-secondary {
+    color: #fcfbfb !important;
+}
+
+.btn-secondary:hover {
+     transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
+    filter: brightness(1.1);
+}
+
+/* Chapters Hero Header */
+header.container {
+    background: var(--card-gradient);
+    padding: 60px 40px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #332244;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.container {
+    background: var(--card-gradient);
+    padding: 60px 40px;
+    border-radius: 16px;
+    text-align: center;
+    border: 1px solid #332244;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+header.container h1 {
+    font-size: 2.5rem;
+    color: var(--primary-purple);
+    margin-bottom: 10px;
+}
+
+header.container .name {
+    font-size: 1.2rem;
+    color: var(--primary-teal);
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+.chapter-section {
+    background: var(--card-gradient);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #332244;
+    margin-bottom: 30px;
+}
+
+.demo-step {
+    background: #151515;
+    border-left: 4px solid var(--primary-teal);
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.demo-step h4 { margin-top: 0; color: var(--primary-teal); }
+
+.demo-area, .output-area {
+    min-height: 120px;
+    background: #0a0a0a;
+    border: 2px dashed #443355; 
+    border-radius: 8px;
+    padding: 20px;
+    margin-top: 15px;
+    font-family: 'Consolas', monospace;
+    color: #f8f8f2;
+    border-left: 5px solid var(--primary-purple);
+    max-height: 250px; 
+    overflow-y: auto; 
+    white-space: pre-wrap;
+}
+
+.console-instruction { 
+    background: #1a1a1a; 
+    color: var(--primary-teal); 
+    padding: 15px; 
+    border-radius: 8px; 
+    font-family: 'Consolas', monospace; 
+    border: 1px solid #444;
+    font-size: 0.9rem;
+    
+}
+
+.loop, .loop1, .loop2 { 
+    font-size: 1.2rem; 
+    font-family: monospace; 
+    padding: 10px; 
+    background: rgba(187, 134, 252, 0.1); 
+    border-radius: 6px; 
+    margin: 5px 0; 
+    border: 1px solid rgba(187, 134, 252, 0.3);
+}
