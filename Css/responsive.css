@@ -12,14 +12,23 @@
 @media (max-width: 480px) {
     
     /* 1. Global Navigation Fix */
-    nav, .allchapterbutton {
+    nav {
         position: relative !important;
         top: 0 !important;
         right: 0 !important;
-        margin: 10px 0 20px 0 !important;
-        width: 100% !important;
+        margin: 5px 0 15px 0 !important;
+        width: 50% !important;
         display: flex !important;
-        justify-content: center; /* Centers the button */
+        
+    }
+    .allchapterbutton {
+        position: absolute !important;
+        top: 0 !important;
+        left: 200px !important;
+        margin: 5px 0 15px 0 !important;
+        width: 50% !important;
+        display: flex !important;
+        
     }
 
     nav a, .allchapterbutton a {
@@ -42,25 +51,23 @@
     /* This targets demo areas, form rows, and footer links */
     .form-row, 
     .demo-step + div,
-    .button-group,
-    footer.container {
+    .button-group {
         display: flex !important;
-        flex-direction: row !important; /* Keep buttons horizontal */
-        flex-wrap: wrap !important;     /* Wrap to next line only if needed */
-        justify-content: center;        /* Centers buttons in the box */
-        gap: 10px !important;
+        flex-direction: row !important; /* Force side-by-side */
+        flex-wrap: nowrap !important;   /* Prevent stacking */
+        justify-content: center !important;
+        gap: 8px !important;
         width: 100%;
     }
 
+    /* Adjust button sizes inside sections so they fit the row */
     .btn-primary, 
     .btn-secondary {
-        width: auto !important;      /* Back to natural width */
-        min-width: 120px;            /* Ensures buttons aren't too tiny to tap */
-        margin: 0 !important; 
-        padding: 10px 20px !important;
-        display: inline-block !important;
-        text-align: center;
-        font-size: 0.95rem;
+        flex: 1; /* Makes them equal width */
+        max-width: 150px; /* Prevents them from getting too long */
+        padding: 10px 5px !important;
+        font-size: 0.85rem !important;
+        white-space: nowrap; /* Prevents text from wrapping inside the button */
     }
 
     /* 4. Overflow Prevention (Code Blocks) */
