@@ -1,0 +1,159 @@
+/* =========================================
+   RESPONSIVE DESIGN SYSTEM
+   ========================================= */
+
+/* --- TABLETS & LAPTOPS --- */
+@media (max-width: 1024px) {
+    main { padding: 15px; }
+    .carousel-wrapper { padding: 0 40px; }
+}
+
+/* --- MOBILE PHONES (iPhone 11, 12, 13, 14, 15 Pro & similar) --- */
+@media (max-width: 480px) {
+    
+    /* 1. Global Navigation Fix */
+    nav, .allchapterbutton {
+        position: relative !important;
+        top: 0 !important;
+        right: 0 !important;
+        margin: 10px 0 20px 0 !important;
+        width: 100% !important;
+        display: flex !important;
+        justify-content: center; /* Centers the button */
+    }
+
+    nav a, .allchapterbutton a {
+        display: inline-block !important; /* Prevents full-width stretching */
+        width: auto !important;
+        min-width: 160px; /* Gives a nice consistent base size */
+        text-align: center;
+        padding: 12px 20px !important;
+    }
+
+    /* 2. Header & Hero Fixes */
+    header.container, .hero-section {
+        padding: 30px 15px !important;
+        margin-top: 10px !important;
+    }
+
+    h1 { font-size: 1.6rem !important; }
+    
+    /* 3. Button Group Fix (The "Normal Size" Request) */
+    /* This targets demo areas, form rows, and footer links */
+    .form-row, 
+    .demo-step + div,
+    .button-group,
+    footer.container {
+        display: flex !important;
+        flex-direction: row !important; /* Keep buttons horizontal */
+        flex-wrap: wrap !important;     /* Wrap to next line only if needed */
+        justify-content: center;        /* Centers buttons in the box */
+        gap: 10px !important;
+        width: 100%;
+    }
+
+    .btn-primary, 
+    .btn-secondary {
+        width: auto !important;      /* Back to natural width */
+        min-width: 120px;            /* Ensures buttons aren't too tiny to tap */
+        margin: 0 !important; 
+        padding: 10px 20px !important;
+        display: inline-block !important;
+        text-align: center;
+        font-size: 0.95rem;
+    }
+
+    /* 4. Overflow Prevention (Code Blocks) */
+    .demo-area, 
+    .output-area, 
+    .console-instruction {
+        width: 100%;
+        font-size: 0.8rem;
+        padding: 15px !important;
+        white-space: pre-wrap;
+        word-break: break-all;
+        overflow-x: hidden;
+    }
+
+    /* 5. Dashboard Carousel Fix */
+    .card {
+        flex: 0 0 85vw !important;
+        margin-right: 15px;
+    }
+    /* --- TABLE STYLING (Chapter 9) --- */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    overflow: hidden; /* Keeps corners rounded */
+}
+
+th, td {
+    padding: 12px 8px;
+    text-align: center; /* Centering the content */
+    border-bottom: 1px solid #332244;
+    font-size: 0.9rem;
+}
+
+th {
+    background: rgba(187, 134, 252, 0.1);
+    color: var(--primary-purple);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+/* --- FORM & INPUT STYLING --- */
+.input-style, 
+input[type="text"], 
+input[type="number"], 
+select {
+    width: 100%;
+    max-width: 300px; /* Keeps it "slim" */
+    margin: 10px auto; /* Centers the input itself */
+    display: block;
+    padding: 10px 15px;
+    background: #1a1a1a;
+    border: 1px solid #443355;
+    border-radius: 6px;
+    color: white;
+    font-family: inherit;
+    transition: all 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary-teal);
+    box-shadow: 0 0 8px rgba(3, 218, 198, 0.2);
+}
+
+/* Slimming down the form container */
+.demo-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers everything inside the form */
+    gap: 5px;
+}
+
+    /* 6. Footer Layout */
+    footer.container {
+        padding: 30px 15px 60px 15px !important;
+        border-top: 1px solid #332244;
+    }
+    
+    footer.container a {
+        display: inline-block;
+        width: auto;
+    }
+}
+
+/* --- SMALL MOBILE (iPhone SE) --- */
+@media (max-width: 360px) {
+    .btn-primary, .btn-secondary {
+        min-width: 100px;
+        padding: 8px 15px !important;
+    }
+}

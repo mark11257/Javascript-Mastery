@@ -34,13 +34,15 @@ main {
 }
 
 /* Global Navigation Styles */
-nav { margin-bottom: 20px; }
+
+nav { margin-top: 20px; }
 
 .allchapterbutton {
-    position: absolute;
-    top: 20px;
+    position:absolute;
+    margin-top: 0px;
     right: 20px;
     z-index: 100;
+    
 }
 
 .chapter-link, nav a, .allchapterbutton a { 
@@ -54,7 +56,11 @@ nav { margin-bottom: 20px; }
     transition: 0.3s;
 }
 
-.allchapterbutton a:hover { 
+.allchapterbutton a:hover{ 
+    opacity: 0.9; 
+    letter-spacing: 0.5px; 
+}
+.nav a:hover { 
     opacity: 0.9; 
     letter-spacing: 0.5px; 
 }
@@ -169,6 +175,8 @@ header.container .name {
     border-radius: 8px; 
     font-family: 'Consolas', monospace; 
     border: 1px solid #444;
+    font-size: 0.9rem;
+    
 }
 
 .loop, .loop1, .loop2 { 
