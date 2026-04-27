@@ -1,56 +1,8 @@
 [
     {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
-    },
-    {
-    "name":"mark",
-     "age":"23",
-     "gender":"Male",
-     "Profession":"Software Engineer"
+        "name": "mark",
+        "age": "23",
+        "gender": "Male",
+        "profession": "Software Engineer"
     }
 ]

@@ -1,9 +1,15 @@
-
-
 /* Chapter Theme Overrides */
-.ch1-theme .demo-step { border-left-color: var(--primary-teal); }
-.ch2-theme .demo-step { border-left-color: var(--primary-purple); }
-.ch3-theme .demo-step { border-left-color: #f39c12; }
+.ch1-theme .demo-step {
+    border-left-color: var(--primary-teal);
+}
+
+.ch2-theme .demo-step {
+    border-left-color: var(--primary-purple);
+}
+
+.ch3-theme .demo-step {
+    border-left-color: #f39c12;
+}
 
 /* Status Demo Card */
 .status-card {
@@ -11,8 +17,8 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    padding: 30px !important;
-    background: #0d0d0d !important;
+    padding: 30px;
+    background: #0d0d0d;
 }
 
 .status-badge {
@@ -24,17 +30,10 @@
     background: rgba(187, 134, 252, 0.1);
 }
 
-/* Green state for the "Success" or "Active" labels */
 .status-active {
     color: var(--primary-teal);
     border: 1px solid var(--primary-teal);
     box-shadow: 0 0 10px rgba(3, 218, 198, 0.2);
-}
-/* Change badge color when active */
-#room-status:not(:contains('IDLE')) {
-    color: #03dac6;
-    border-color: #03dac6;
-    background: rgba(3, 218, 198, 0.1);
 }
 
 .icon {
@@ -42,8 +41,7 @@
     filter: drop-shadow(0 0 5px rgba(187, 134, 252, 0.5));
 }
 
-/*Footer */
-
+/* Footer */
 footer.container {
     margin-top: 60px;
     padding-top: 30px;
@@ -56,7 +54,7 @@ footer h3 {
     margin-bottom: 15px;
 }
 
-/* Ensure images within chapter sections don't overflow */
+/* Images */
 .chapter-section img {
     max-width: 100%;
     height: auto;
@@ -65,7 +63,8 @@ footer h3 {
 }
 
 /* Form Groups & Inputs */
-.cookie-form, .demo-form {
+.cookie-form,
+.demo-form {
     margin-top: 20px;
     background: rgba(187, 134, 252, 0.05);
     padding: 25px;
@@ -86,8 +85,8 @@ footer h3 {
     font-weight: 500;
 }
 
-input[type="text"], 
-input[type="password"], 
+input[type="text"],
+input[type="password"],
 input[type="email"] {
     flex: 1;
     padding: 10px 12px;
@@ -103,38 +102,132 @@ input:focus {
     border-color: var(--primary-teal);
     box-shadow: 0 0 8px rgba(3, 218, 198, 0.4);
 }
-.gender-container { display: flex; gap: 20px; align-items: center; margin-top: 10px; }
-.gender-option { display: flex; align-items: center; gap: 8px; cursor: pointer; }
-.gender-option input { cursor: pointer; accent-color: #ff9800; width: 18px; height: 18px; }
 
-table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #1a1a1a; }
-        th, td { border: 1px solid #333; padding: 12px; text-align: left; }
-        th { color: #ff9800; }
+/* Gender Radio Buttons */
+.gender-container {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-top: 10px;
+}
 
+.gender-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
 
-/* =========================================
-   9. chapter 10
-   ========================================= */
-           .event-box { border: 2px dashed #f44336; padding: 30px; text-align: center; margin: 20px 0; cursor: crosshair; transition: 0.3s; font-size: 1.2rem; }
-        .input-style { width: 100%; padding: 10px; background: #2a2a2a; border: 1px solid #444; color: white; border-radius: 4px; margin-bottom: 10px; }
-        .input-style:focus { border-color: #f44336; outline: none; }        
+.gender-option input {
+    cursor: pointer;
+    accent-color: #ff9800;
+    width: 18px;
+    height: 18px;
+}
 
-         /* Slideshow specific */
-        .slide-container { text-align: center; background: #1e1e1e; padding: 20px; border-radius: 8px; border: 1px solid #333; }
-        .slide-display { width: 100%; height: 200px; display: flex; align-items: center; justify-content: center; font-size: 2rem; font-weight: bold; border-radius: 8px; transition: background 0.5s; margin-bottom: 15px; background-color: #f44336; color: white; }
-        
-        /* Bubbling specific */
-        .bubble-parent { background: #333; padding: 40px; border: 2px solid #555; text-align: center; border-radius: 8px; cursor: pointer; }
-        .bubble-child { background: #f44336; padding: 20px; color: white; font-weight: bold; border: none; border-radius: 4px; cursor: pointer; }
+/* Tables - Consolidated */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    background: #1a1a1a;
+}
 
-        table { width: 100%; border-collapse: collapse; margin: 15px 0; background: #1a1a1a; }
-        th, td { border: 1px solid #333; padding: 12px; text-align: left; }
-        th { color: #f44336; }
-        
-      .bg-success-green {
-    background: #28a745 !important; /* Solid Green */
-    color: white !important;
+th,
+td {
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    color: #ff9800;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+/* Chapter 10 Specific Styles */
+.event-box {
+    border: 2px dashed #f44336;
+    padding: 30px;
+    text-align: center;
+    margin: 20px 0;
+    cursor: crosshair;
+    transition: background 0.3s;
+    font-size: 1.2rem;
+}
+
+.input-style {
+    width: 100%;
+    padding: 10px;
+    background: #2a2a2a;
+    border: 1px solid #444;
+    color: white;
+    border-radius: 4px;
+    margin-bottom: 10px;
+    transition: border-color 0.3s;
+}
+
+.input-style:focus {
+    border-color: #f44336;
+    outline: none;
+}
+
+/* Slideshow Container */
+.slide-container {
+    text-align: center;
+    background: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+.slide-display {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background 0.5s;
+    margin-bottom: 15px;
+    background-color: #f44336;
+    color: white;
+}
+
+/* Event Bubbling Styles */
+.bubble-parent {
+    background: #333;
+    padding: 40px;
+    border: 2px solid #555;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.bubble-child {
+    background: #f44336;
+    padding: 20px;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.bubble-child:hover {
+    background: #d32f2f;
+}
+
+/* Success Badge */
+.bg-success-green {
+    background: #28a745;
+    color: white;
     box-shadow: 0 0 15px rgba(40, 167, 69, 0.6);
     border: none;
-
 }

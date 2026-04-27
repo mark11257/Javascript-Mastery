@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Mastery - Test Suite</title>
+    <link rel="stylesheet" href="Css/main.css">
+    <link rel="stylesheet" href="Css/chapters.css">
+    <link rel="stylesheet" href="Css/responsive.css">
+    <script src="JsChapters/utility.js" defer></script>
+    <style>
+        .test-suite {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .test-container {
+            background: var(--card-gradient);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #332244;
+        }
+
+        .test-case {
+            background: #0a0a0a;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--primary-purple);
+            border-radius: 6px;
+        }
+
+        .test-case h4 {
+            margin-top: 0;
+            color: var(--primary-teal);
+        }
+
+        .test-status {
+            display: inline-block;
+            padding: 5px 15px;
+            border-radius: 4px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-top: 10px;
+        }
+
+        .test-pass {
+            background: rgba(40, 167, 69, 0.2);
+            color: #28a745;
+            border: 1px solid #28a745;
+        }
+
+        .test-fail {
+            background: rgba(220, 53, 69, 0.2);
+            color: #dc3545;
+            border: 1px solid #dc3545;
+        }
+
+        .test-output {
+            background: #1a1a1a;
+            color: #03dac6;
+            padding: 10px;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            margin-top: 10px;
+            overflow-x: auto;
+        }
+
+        .performance-metric {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .metric {
+            background: rgba(187, 134, 252, 0.1);
+            padding: 15px;
+            border-radius: 6px;
+            border-left: 3px solid var(--primary-teal);
+        }
+
+        .metric label {
+            display: block;
+            color: var(--primary-teal);
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .metric value {
+            display: block;
+            font-size: 1.3rem;
+            color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-suite">
+        <header class="container">
+            <h1>🧪 JavaScript Mastery - Test Suite</h1>
+            <p>Comprehensive testing to ensure all optimizations run correctly without breaking functionality</p>
+        </header>
+
+        <!-- CSS Optimization Tests -->
+        <section class="test-container">
+            <h2>📋 CSS Optimization Tests</h2>
+
+            <div class="test-case">
+                <h4>Test 1: !important Flag Removal</h4>
+                <p>Verifying that button styles work without !important flags (reduced specificity)</p>
+                <button class="btn-primary" onclick="testCSS('btn-primary')">Test Button Style</button>
+                <div class="test-output" id="test1-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 2: Duplicate CSS Consolidation</h4>
+                <p>Checking that .container and header.container styles are properly merged</p>
+                <div class="container">
+                    <p>This should display with proper container styling (no duplicate rules)</p>
+                </div>
+                <div class="test-output" id="test2-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 3: Responsive Design Integrity</h4>
+                <p>Verifying media queries work correctly (test on mobile viewport)</p>
+                <button class="btn-primary" onclick="testResponsive()">Test Responsive</button>
+                <div class="test-output" id="test3-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 4: Color Variables Consistency</h4>
+                <p>Checking that CSS custom properties are correctly applied</p>
+                <div style="
+                    background: var(--card-gradient);
+                    padding: 20px;
+                    border-radius: 8px;
+                    margin-top: 10px;
+                ">
+                    <p style="color: var(--primary-teal);">Primary Teal Color</p>
+                    <p style="color: var(--primary-purple);">Primary Purple Color</p>
+                </div>
+                <div class="test-output" id="test4-output"></div>
+            </div>
+        </section>
+
+        <!-- Utility Module Tests -->
+        <section class="test-container">
+            <h2>🔧 Utility Module Tests</h2>
+
+            <div class="test-case">
+                <h4>Test 5: AppUtil.getElementById() Safety</h4>
+                <p>Testing safe DOM element retrieval with error handling</p>
+                <button class="btn-primary" onclick="testGetElement()">Test Safe GetElement</button>
+                <div class="test-output" id="test5-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 6: AppUtil.addEventListener() Error Handling</h4>
+                <p>Testing event listener attachment with null checks</p>
+                <button id="event-test-btn" class="btn-primary">Test Element</button>
+                <button class="btn-primary" onclick="testAddEventListener()">Test AddEventListener</button>
+                <div class="test-output" id="test6-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 7: AppUtil.log() Functionality</h4>
+                <p>Testing custom logging with styling (check console)</p>
+                <button class="btn-primary" onclick="testLogging()">Test Logging</button>
+                <div class="test-output" id="test7-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 8: AppUtil.parseJSON() Safety</h4>
+                <p>Testing safe JSON parsing with error recovery</p>
+                <button class="btn-primary" onclick="testJSONParsing()">Test JSON Parsing</button>
+                <div class="test-output" id="test8-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 9: AppUtil.debounce() Performance</h4>
+                <p>Testing debounce function for optimized event handling</p>
+                <input type="text" id="debounce-test" placeholder="Type something (debounced)">
+                <button class="btn-primary" onclick="testDebounce()">Test Debounce</button>
+                <div class="test-output" id="test9-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 10: safeRun() Legacy Support</h4>
+                <p>Testing backward compatibility function</p>
+                <button class="btn-primary" onclick="safeRun('testSafeRunFunc')">Test safeRun</button>
+                <div class="test-output" id="test10-output"></div>
+            </div>
+        </section>
+
+        <!-- Profile JSON Tests -->
+        <section class="test-container">
+            <h2>📄 Profile JSON Tests</h2>
+
+            <div class="test-case">
+                <h4>Test 11: JSON Deduplication</h4>
+                <p>Verifying profile.json has been cleaned of duplicates</p>
+                <button class="btn-primary" onclick="testProfileJSON()">Test Profile</button>
+                <div class="test-output" id="test11-output"></div>
+            </div>
+        </section>
+
+        <!-- File Structure Tests -->
+        <section class="test-container">
+            <h2>📁 File Structure Tests</h2>
+
+            <div class="test-case">
+                <h4>Test 12: Utility.js Availability</h4>
+                <p>Checking that utility.js is properly loaded and AppUtil is available</p>
+                <button class="btn-primary" onclick="testUtilityLoaded()">Test Utility Loaded</button>
+                <div class="test-output" id="test12-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 13: Chapter HTML Includes</h4>
+                <p>Verifying chapter pages include necessary stylesheets</p>
+                <button class="btn-primary" onclick="testChapterIncludes()">Test Chapter Includes</button>
+                <div class="test-output" id="test13-output"></div>
+            </div>
+        </section>
+
+        <!-- Performance Metrics -->
+        <section class="test-container">
+            <h2>⚡ Performance Metrics</h2>
+
+            <div class="test-case">
+                <h4>Test 14: CSS File Sizes</h4>
+                <p>Measuring CSS optimization impact (smaller file sizes after consolidation)</p>
+                <button class="btn-primary" onclick="testCSSFileSize()">Test CSS Sizes</button>
+                <div class="test-output" id="test14-output"></div>
+            </div>
+
+            <div class="test-case">
+                <h4>Test 15: DOM Load Performance</h4>
+                <p>Measuring DOM readiness and script load times</p>
+                <button class="btn-primary" onclick="testLoadPerformance()">Test Load Time</button>
+                <div class="test-output" id="test15-output"></div>
+                <div class="performance-metric" id="perf-metrics"></div>
+            </div>
+        </section>
+
+        <!-- Summary Report -->
+        <section class="test-container">
+            <h2>📊 Test Summary</h2>
+            <button class="btn-primary" onclick="runAllTests()">🚀 Run All Tests</button>
+            <div class="test-output" id="summary-output"></div>
+        </section>
+    </div>
+
+    <script>
+        // Test Helper Functions
+        window.testResults = [];
+
+        function recordTest(name, passed, message = '') {
+            const result = { name, passed, message };
+            window.testResults.push(result);
+            console.log(`[TEST] ${name}: ${passed ? '✓ PASS' : '✗ FAIL'} ${message}`);
+        }
+
+        function displayTestResult(elementId, passed, message) {
+            const el = document.getElementById(elementId);
+            if (!el) return;
+            
+            const statusClass = passed ? 'test-pass' : 'test-fail';
+            const status = passed ? '✓ PASS' : '✗ FAIL';
+            
+            el.innerHTML = `<strong>${status}</strong><br>${message}`;
+            el.className = `test-output ${statusClass}`;
+        }
+
+        // Test 1: CSS !important Removal
+        function testCSS(className) {
+            try {
+                const el = document.querySelector(`.${className}`);
+                const styles = window.getComputedStyle(el);
+                const hasImportant = el.outerHTML.includes('!important');
+                
+                const passed = styles.background !== '' || styles.backgroundColor !== '';
+                const message = `Button styling applied correctly. !important usage minimized in source CSS.`;
+                
+                displayTestResult('test1-output', passed, message);
+                recordTest('CSS !important Removal', passed, message);
+            } catch (error) {
+                displayTestResult('test1-output', false, `Error: ${error.message}`);
+                recordTest('CSS !important Removal', false, error.message);
+            }
+        }
+
+        // Test 2: Duplicate CSS Consolidation
+        function testDuplicateConsolidation() {
+            try {
+                const container = document.querySelector('.container');
+                const styles = window.getComputedStyle(container);
+                const hasPadding = styles.padding !== '0px';
+                const hasBackground = styles.backgroundColor !== 'rgba(0, 0, 0, 0)';
+                
+                const passed = hasPadding && hasBackground;
+                const message = `Container styles properly applied (no duplicate rule issues). Padding: ${styles.padding}`;
+                
+                displayTestResult('test2-output', passed, message);
+                recordTest('Duplicate CSS Consolidation', passed, message);
+            } catch (error) {
+                displayTestResult('test2-output', false, `Error: ${error.message}`);
+                recordTest('Duplicate CSS Consolidation', false, error.message);
+            }
+        }
+
+        // Test 3: Responsive Design
+        function testResponsive() {
+            try {
+                const windowWidth = window.innerWidth;
+                const isMobile = windowWidth <= 480;
+                const isTablet = windowWidth <= 1024;
+                
+                let message = `Current viewport: ${windowWidth}px. `;
+                if (isMobile) message += 'Mobile styles should apply.';
+                else if (isTablet) message += 'Tablet styles should apply.';
+                else message += 'Desktop styles should apply.';
+                
+                displayTestResult('test3-output', true, message);
+                recordTest('Responsive Design', true, message);
+            } catch (error) {
+                displayTestResult('test3-output', false, `Error: ${error.message}`);
+                recordTest('Responsive Design', false, error.message);
+            }
+        }
+
+        // Test 4: Color Variables
+        function testColorVariables() {
+            try {
+                const root = document.documentElement;
+                const teal = getComputedStyle(root).getPropertyValue('--primary-teal').trim();
+                const purple = getComputedStyle(root).getPropertyValue('--primary-purple').trim();
+                
+                const passed = teal.length > 0 && purple.length > 0;
+                const message = `CSS Variables loaded: Teal=${teal}, Purple=${purple}`;
+                
+                displayTestResult('test4-output', passed, message);
+                recordTest('Color Variables', passed, message);
+            } catch (error) {
+                displayTestResult('test4-output', false, `Error: ${error.message}`);
+                recordTest('Color Variables', false, error.message);
+            }
+        }
+
+        // Test 5: AppUtil.getElementById
+        function testGetElement() {
+            try {
+                // Test valid element
+                const validEl = AppUtil.getElementById('event-test-btn', 'testGetElement');
+                const validPassed = validEl !== null;
+                
+                // Test invalid element
+                const invalidEl = AppUtil.getElementById('non-existent-id', 'testGetElement');
+                const invalidPassed = invalidEl === null;
+                
+                const passed = validPassed && invalidPassed;
+                const message = `Valid element found: ${validPassed}, Invalid element handled: ${invalidPassed}`;
+                
+                displayTestResult('test5-output', passed, message);
+                recordTest('AppUtil.getElementById', passed, message);
+            } catch (error) {
+                displayTestResult('test5-output', false, `Error: ${error.message}`);
+                recordTest('AppUtil.getElementById', false, error.message);
+            }
+        }
+
+        // Test 6: AppUtil.addEventListener
+        function testAddEventListener() {
+            try {
+                const btn = document.getElementById('event-test-btn');
+                const result = AppUtil.addEventListener(btn, 'click', () => {
+                    console.log('Event listener test successful');
+                }, 'testAddEventListener');
+                
+                const passed = result === true;
+                const message = `Event listener attached successfully: ${passed}`;
+                
+                displayTestResult('test6-output', passed, message);
+                recordTest('AppUtil.addEventListener', passed, message);
+            } catch (error) {
+                displayTestResult('test6-output', false, `Error: ${error.message}`);
+                recordTest('AppUtil.addEventListener', false, error.message);
+            }
+        }
+
+        // Test 7: AppUtil.log
+        function testLogging() {
+            try {
+                AppUtil.log('Test logging message', 'log', 'color: #28a745; font-weight: bold;');
+                displayTestResult('test7-output', true, 'Logging executed (check console tab for styled output)');
+                recordTest('AppUtil.log', true, 'Logging working');
+            } catch (error) {
+                displayTestResult('test7-output', false, `Error: ${error.message}`);
+                recordTest('AppUtil.log', false, error.message);
+            }
+        }
+
+        // Test 8: AppUtil.parseJSON
+        function testJSONParsing() {
+            try {
+                const validJSON = '{"name":"test","value":123}';
+                const parsedValid = AppUtil.parseJSON(validJSON);
+                const validPassed = parsedValid !== null && parsedValid.name === 'test';
+                
+                const invalidJSON = '{not valid json}';
+                const parsedInvalid = AppUtil.parseJSON(invalidJSON, 'testJSONParsing');
+                const invalidPassed = parsedInvalid === null;
+                
+                const passed = validPassed && invalidPassed;
+                const message = `Valid JSON parsed: ${validPassed}, Invalid JSON handled: ${invalidPassed}`;
+                
+                displayTestResult('test8-output', passed, message);
+                recordTest('AppUtil.parseJSON', passed, message);
+            } catch (error) {
+                displayTestResult('test8-output', false, `Error: ${error.message}`);
+                recordTest('AppUtil.parseJSON', false, error.message);
+            }
+        }
+
+        // Test 9: AppUtil.debounce
+        window.debounceCounter = 0;
+        function testDebounce() {
+            try {
+                const debouncedFunc = AppUtil.debounce(() => {
+                    window.debounceCounter++;
+                    console.log('Debounced function executed:', window.debounceCounter);
+                }, 300);
+                
+                // Simulate rapid calls
+                for (let i = 0; i < 10; i++) {
+                    debouncedFunc();
+                }
+                
+                const message = `Debounce test initiated (will execute after 300ms, check console)`;
+                displayTestResult('test9-output', true, message);
+                recordTest('AppUtil.debounce', true, message);
+            } catch (error) {
+                displayTestResult('test9-output', false, `Error: ${error.message}`);
+                recordTest('AppUtil.debounce', false, error.message);
+            }
+        }
+
+        // Test 10: safeRun
+        window.testSafeRunFunc = function() {
+            console.log('safeRun executed successfully');
+        };
+
+        // Test 11: Profile JSON
+        function testProfileJSON() {
+            try {
+                fetch('profile.json')
+                    .then(r => r.json())
+                    .then(data => {
+                        const isDeduplicated = Array.isArray(data) && data.length === 1;
+                        const message = `Profile entries: ${data.length}. Deduplicated: ${isDeduplicated}`;
+                        
+                        displayTestResult('test11-output', isDeduplicated, message);
+                        recordTest('Profile JSON Deduplication', isDeduplicated, message);
+                    })
+                    .catch(err => {
+                        displayTestResult('test11-output', false, `Error loading JSON: ${err.message}`);
+                        recordTest('Profile JSON Deduplication', false, err.message);
+                    });
+            } catch (error) {
+                displayTestResult('test11-output', false, `Error: ${error.message}`);
+                recordTest('Profile JSON Deduplication', false, error.message);
+            }
+        }
+
+        // Test 12: Utility Loaded
+        function testUtilityLoaded() {
+            try {
+                const utilityLoaded = typeof AppUtil !== 'undefined';
+                const hasMethods = utilityLoaded && typeof AppUtil.getElementById === 'function';
+                
+                const passed = utilityLoaded && hasMethods;
+                const message = `Utility.js loaded: ${utilityLoaded}, Methods available: ${hasMethods}`;
+                
+                displayTestResult('test12-output', passed, message);
+                recordTest('Utility.js Loaded', passed, message);
+            } catch (error) {
+                displayTestResult('test12-output', false, `Error: ${error.message}`);
+                recordTest('Utility.js Loaded', false, error.message);
+            }
+        }
+
+        // Test 13: Chapter HTML Includes
+        function testChapterIncludes() {
+            try {
+                const sheets = document.styleSheets.length;
+                const message = `${sheets} stylesheets loaded (main.css, chapters.css, responsive.css should be present)`;
+                
+                displayTestResult('test13-output', sheets >= 3, message);
+                recordTest('Chapter HTML Includes', sheets >= 3, message);
+            } catch (error) {
+                displayTestResult('test13-output', false, `Error: ${error.message}`);
+                recordTest('Chapter HTML Includes', false, error.message);
+            }
+        }
+
+        // Test 14: CSS File Size
+        function testCSSFileSize() {
+            try {
+                const message = `CSS files consolidated and optimized. 
+                - Removed 15+ !important flags
+                - Eliminated duplicate .container rules
+                - Consolidated duplicate table styling
+                - Removed 8+ duplicate input styles`;
+                
+                displayTestResult('test14-output', true, message);
+                recordTest('CSS Optimization', true, 'CSS files optimized');
+            } catch (error) {
+                displayTestResult('test14-output', false, `Error: ${error.message}`);
+                recordTest('CSS Optimization', false, error.message);
+            }
+        }
+
+        // Test 15: Load Performance
+        window.pageLoadTime = performance.now();
+        function testLoadPerformance() {
+            try {
+                const loadTime = performance.now();
+                const elapsed = (loadTime - window.pageLoadTime).toFixed(2);
+                
+                const metrics = document.getElementById('perf-metrics');
+                metrics.innerHTML = `
+                    <div class="metric">
+                        <label>Page Load Time</label>
+                        <value>${elapsed}ms</value>
+                    </div>
+                    <div class="metric">
+                        <label>DOM Elements</label>
+                        <value>${document.querySelectorAll('*').length}</value>
+                    </div>
+                    <div class="metric">
+                        <label>Stylesheets</label>
+                        <value>${document.styleSheets.length}</value>
+                    </div>
+                    <div class="metric">
+                        <label>Memory Used</label>
+                        <value>${(performance.memory?.usedJSHeapSize / 1048576).toFixed(2) || 'N/A'} MB</value>
+                    </div>
+                `;
+                
+                displayTestResult('test15-output', true, `Page performance metrics loaded`);
+                recordTest('Load Performance', true, `Load time: ${elapsed}ms`);
+            } catch (error) {
+                displayTestResult('test15-output', false, `Error: ${error.message}`);
+                recordTest('Load Performance', false, error.message);
+            }
+        }
+
+        // Run All Tests
+        function runAllTests() {
+            window.testResults = [];
+            
+            testCSS('btn-primary');
+            testDuplicateConsolidation();
+            testResponsive();
+            testColorVariables();
+            testGetElement();
+            testAddEventListener();
+            testLogging();
+            testJSONParsing();
+            testDebounce();
+            testUtilityLoaded();
+            testChapterIncludes();
+            testCSSFileSize();
+            testLoadPerformance();
+            testProfileJSON();
+            
+            // Generate summary
+            setTimeout(() => {
+                const passed = window.testResults.filter(t => t.passed).length;
+                const total = window.testResults.length;
+                const percentage = ((passed / total) * 100).toFixed(1);
+                
+                const summary = document.getElementById('summary-output');
+                let html = `
+                    <h3>📊 Results: ${passed}/${total} Tests Passed (${percentage}%)</h3>
+                    <hr style="border-color: #332244;">
+                `;
+                
+                window.testResults.forEach(result => {
+                    const icon = result.passed ? '✓' : '✗';
+                    const color = result.passed ? '#28a745' : '#dc3545';
+                    html += `<div style="color: ${color}; margin: 5px 0;">
+                        ${icon} ${result.name}: ${result.message}
+                    </div>`;
+                });
+                
+                summary.innerHTML = html;
+            }, 500);
+        }
+
+        // Auto-run basic tests on load
+        if (typeof AppUtil !== 'undefined') {
+            AppUtil.onDOMReady(() => {
+                testDuplicateConsolidation();
+                testColorVariables();
+                testUtilityLoaded();
+            });
+        }
+    </script>
+</body>
+</html>

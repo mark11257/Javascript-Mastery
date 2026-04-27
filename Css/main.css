@@ -34,41 +34,41 @@ main {
 }
 
 /* Global Navigation Styles */
-
-nav { margin-top: 20px; }
+nav {
+    margin-top: 20px;
+}
 
 .allchapterbutton {
-    position:absolute;
-    margin-top: 0px;
+    position: absolute;
     right: 20px;
     z-index: 100;
-    
 }
 
-.chapter-link, nav a, .allchapterbutton a { 
-    background: var(--accent-gradient) !important; 
-    color: white !important; 
-    padding: 10px 20px; 
-    text-decoration: none; 
-    border-radius: 8px; 
-    display: inline-block; 
+.chapter-link,
+nav a,
+.allchapterbutton a {
+    background: var(--accent-gradient);
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 8px;
+    display: inline-block;
     font-weight: 500;
-    transition: 0.3s;
+    transition: opacity 0.3s, letter-spacing 0.3s;
 }
 
-.allchapterbutton a:hover{ 
-    opacity: 0.9; 
-    letter-spacing: 0.5px; 
-}
-.nav a:hover { 
-    opacity: 0.9; 
-    letter-spacing: 0.5px; 
+.chapter-link:hover,
+nav a:hover,
+.allchapterbutton a:hover {
+    opacity: 0.9;
+    letter-spacing: 0.5px;
 }
 
-
-.btn-primary, footer .btn-primary, .btn-secondary {
-    background: var(--primary-purple) !important;
-    color: #121212 !important; 
+/* Buttons - Primary & Secondary */
+.btn-primary,
+.btn-secondary {
+    background: var(--primary-purple);
+    color: #121212;
     padding: 10px 22px;
     border-radius: 10px;
     font-weight: 600;
@@ -76,32 +76,26 @@ nav { margin-top: 20px; }
     display: inline-block;
     border: none;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: transform 0.3s, box-shadow 0.3s, filter 0.3s;
     box-shadow: 0 4px 15px rgba(3, 218, 198, 0.2);
     text-align: center;
     font-size: 1rem;
-      cursor: pointer;
-    transition: all 0.3s ease;
 }
 
-.btn-primary:hover {
+.btn-secondary {
+    color: #fcfbfb;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover,
+footer .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
     filter: brightness(1.1);
 }
 
-/* Outline / Clear Buttons (Purple) */
-.btn-secondary {
-    color: #fcfbfb !important;
-}
-
-.btn-secondary:hover {
-     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(3, 218, 198, 0.4);
-    filter: brightness(1.1);
-}
-
-/* Chapters Hero Header */
+/* Container & Header Styles */
+.container,
 header.container {
     background: var(--card-gradient);
     padding: 60px 40px;
@@ -109,16 +103,7 @@ header.container {
     text-align: center;
     border: 1px solid #332244;
     margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-}
-.container {
-    background: var(--card-gradient);
-    padding: 60px 40px;
-    border-radius: 16px;
-    text-align: center;
-    border: 1px solid #332244;
-    margin-bottom: 30px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
 header.container h1 {
